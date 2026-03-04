@@ -1,4 +1,4 @@
-// Commit 3
+// Commit 4
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
