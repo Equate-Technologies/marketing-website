@@ -23,14 +23,14 @@
 }
 
 [data-theme="dark"] {
-  --bg:           #0a0a0a;
-  --bg-2:         #141414;
-  --bg-3:         #1e1e1e;
-  --ink:          #f0f0f0;
-  --ink-soft:     #b8b8b8;
-  --ink-muted:    #6a6a6a;
-  --border:       #2a2a2a;
-  --border-strong:#404040;
+  --bg: #2a2929;
+  --bg-2: #393939;
+  --bg-3: #2e2e2e;
+  --ink: #ffffff;
+  --ink-soft: #f5f5f5;
+  --ink-muted: #e1e1e1;
+  --border: #646464;
+  --border-strong: #646464;
   --salmon-light: #2a1510;
 }
 
