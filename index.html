@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Equate — Out-of-Band Network Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -12,21 +12,41 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
+      <!-- Logo: two offset diagonal lines (/ /) at 45deg -->
       <div class="logo-mark">
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="8" cy="8" r="3" fill="white"/>
-          <path d="M8 2V4M8 12V14M2 8H4M12 8H14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
         </svg>
       </div>
       Equate
     </a>
+
     <ul class="nav-links">
       <li><a href="#">Product</a></li>
       <li><a href="#">How it works</a></li>
       <li><a href="#">Pricing</a></li>
       <li><a href="#">Docs</a></li>
     </ul>
+
     <div class="nav-actions">
+      <!-- Dark mode toggle -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
       <a href="#" class="btn btn-ghost">Sign in</a>
       <a href="#" class="btn btn-primary" data-waitlist>Request access</a>
     </div>
@@ -49,10 +69,10 @@
       </div>
       <div class="hero-trust">
         <div class="trust-avatars">
-          <div class="trust-avatar" style="background:#6366f1;">JK</div>
-          <div class="trust-avatar" style="background:#0ea5e9;">MS</div>
-          <div class="trust-avatar" style="background:#10b981;">AR</div>
-          <div class="trust-avatar" style="background:#f59e0b;">TL</div>
+          <div class="trust-avatar" style="background:#555;">JK</div>
+          <div class="trust-avatar" style="background:#777;">MS</div>
+          <div class="trust-avatar" style="background:#e8735a;">AR</div>
+          <div class="trust-avatar" style="background:#333;">TL</div>
         </div>
         <p class="trust-text"><strong>Trusted by IT teams</strong> managing distributed infrastructure across industries</p>
       </div>
@@ -73,10 +93,10 @@
 
             <div class="site-row">
               <div class="site-info">
-                <div class="site-icon" style="background:#e8efff; color:#0057ff;">NY1</div>
+                <div class="site-icon" style="background:#f0f0f0; color:#333;">NY1</div>
                 <div>
                   <div class="site-name">New York — DC East</div>
-                  <div class="site-meta">48 devices · Last seen 2m ago</div>
+                  <div class="site-meta">48 devices · 2m ago</div>
                 </div>
               </div>
               <div class="site-status">
@@ -87,10 +107,10 @@
 
             <div class="site-row">
               <div class="site-info">
-                <div class="site-icon" style="background:#fff8e6; color:#b45309;">TX2</div>
+                <div class="site-icon" style="background:#fce8e3; color:#c75a42;">TX2</div>
                 <div>
                   <div class="site-name">Austin — Branch Office</div>
-                  <div class="site-meta">12 devices · Primary link down</div>
+                  <div class="site-meta">12 devices · link down</div>
                 </div>
               </div>
               <div class="site-status">
@@ -101,10 +121,10 @@
 
             <div class="site-row">
               <div class="site-info">
-                <div class="site-icon" style="background:#e6f9f2; color:#00875a;">LA3</div>
+                <div class="site-icon" style="background:#f0f0f0; color:#333;">LA3</div>
                 <div>
                   <div class="site-name">Los Angeles — West Hub</div>
-                  <div class="site-meta">31 devices · Last seen 1m ago</div>
+                  <div class="site-meta">31 devices · 1m ago</div>
                 </div>
               </div>
               <div class="site-status">
@@ -115,10 +135,10 @@
 
             <div class="site-row">
               <div class="site-info">
-                <div class="site-icon" style="background:#f3f4f6; color:#6b7280;">CH4</div>
+                <div class="site-icon" style="background:#ebebeb; color:#7a7a7a;">CH4</div>
                 <div>
                   <div class="site-name">Chicago — Midwest DC</div>
-                  <div class="site-meta">22 devices · Last seen 8m ago</div>
+                  <div class="site-meta">22 devices · 8m ago</div>
                 </div>
               </div>
               <div class="site-status">
@@ -141,7 +161,7 @@
             <div class="alert-icon">⚠️</div>
             <div>
               <div class="alert-title">Primary link down — Austin</div>
-              <div class="alert-desc">OOB path established via LTE · 14s ago</div>
+              <div class="alert-desc">OOB via LTE · established 14s ago</div>
             </div>
           </div>
         </div>
@@ -235,22 +255,22 @@
 
       <div class="steps-grid fade-up">
         <div class="step step-active">
-          <div class="step-num">1</div>
+          <div class="step-num">01</div>
           <div class="step-title">Deploy the agent</div>
           <div class="step-desc">Install our lightweight agent on a supported device at each site. Compatible with most off-the-shelf cellular routers.</div>
         </div>
         <div class="step">
-          <div class="step-num">2</div>
+          <div class="step-num">02</div>
           <div class="step-title">Register your sites</div>
           <div class="step-desc">Each device checks in with Equate over AWS IoT Core. Sites appear in your dashboard within minutes.</div>
         </div>
         <div class="step">
-          <div class="step-num">3</div>
+          <div class="step-num">03</div>
           <div class="step-title">Set access policies</div>
           <div class="step-desc">Define which engineers can access which sites. Configure alert thresholds and notification channels.</div>
         </div>
         <div class="step">
-          <div class="step-num">4</div>
+          <div class="step-num">04</div>
           <div class="step-title">Connect when it counts</div>
           <div class="step-desc">When a primary link fails, log into Equate from anywhere and get a secure terminal session to your devices in seconds.</div>
         </div>
@@ -262,20 +282,26 @@
   <section class="cta-section">
     <div class="cta-box fade-up">
       <div class="cta-content">
-        <div class="cta-eyebrow">Early Access</div>
+        <div class="cta-eyebrow">// early_access</div>
         <h2 class="cta-heading">Your network never<br/>sleeps. Neither do we.</h2>
         <p class="cta-sub">Join IT teams already on the waitlist. Early access includes white-glove onboarding and locked-in pricing.</p>
       </div>
       <div class="cta-actions">
-        <a href="#" class="btn btn-white" data-waitlist>Request early access →</a>
-        <a href="#" class="btn btn-ghost-white" data-waitlist>Talk to the team</a>
+        <a href="#" class="btn btn-ink" data-waitlist>Request early access →</a>
+        <a href="#" class="btn btn-ghost-ink" data-waitlist>Talk to the team</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">Equate</span>
+    <span class="footer-logo">
+      <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+        <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      Equate
+    </span>
     <ul class="footer-links">
       <li><a href="#">Privacy</a></li>
       <li><a href="#">Terms</a></li>
@@ -295,13 +321,12 @@
       <div id="form-default">
         <div class="modal-eyebrow">
           <span class="eyebrow-dot"></span>
-          Early Access
+          early_access
         </div>
         <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
         <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
 
         <form id="waitlist-form" novalidate>
-          <!-- Error banner (hidden by default) -->
           <div id="form-error" hidden>
             <div class="form-error-msg">
               ⚠ <span id="error-message">Something went wrong. Please try again.</span>
@@ -309,7 +334,7 @@
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="waitlist-email">Work email</label>
+            <label class="form-label" for="waitlist-email">work_email</label>
             <input
               id="waitlist-email"
               class="form-input"
@@ -328,7 +353,7 @@
         <hr class="form-divider"/>
         <div class="modal-trust">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          No spam. Unsubscribe at any time.
+          no_spam · unsubscribe_anytime
         </div>
       </div>
 
