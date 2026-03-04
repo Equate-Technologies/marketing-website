@@ -1,4 +1,4 @@
-// ── Scroll-triggered fade-up animations ──
+// Commit 2
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
