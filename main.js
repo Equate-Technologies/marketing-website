@@ -1,4 +1,4 @@
-// Commit #67
+// ── Scroll-triggered fade-up animations ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -8,6 +8,38 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+
+// ── Hide nav on scroll down, show on scroll up ──
+const navbar     = document.querySelector('nav');
+let lastScrollY  = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 80) {
+    navbar.classList.add('hidden');
+  } else {
+    navbar.classList.remove('hidden');
+  }
+
+  lastScrollY = currentScrollY;
+}, { passive: true });
+
+
+// ── Dark Mode Toggle ──
+const themeToggle = document.getElementById('theme-toggle');
+const root        = document.documentElement;
+
+const savedTheme = localStorage.getItem('equate-theme') || 'light';
+root.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  const next    = current === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('equate-theme', next);
+});
 
 
 // ── Waitlist Modal ──
@@ -34,7 +66,6 @@ function openModal() {
 function closeModal() {
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  // Reset form state after animation completes
   setTimeout(resetForm, 300);
 }
 
@@ -89,7 +120,7 @@ waitlistForm.addEventListener('submit', async (e) => {
 
     if (!response.ok) {
       const data = await response.json().catch(() => ({}));
-      throw new Error(data.message || 'Something went wrong.');
+        throw new Error(data.message || 'Something went wrong.');
     }
 
     setFormState('success');
