@@ -1,8 +1,10 @@
 name: Deploy to S3
+
 on:
   push:
     branches:
-      - dev
+      - prod
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
