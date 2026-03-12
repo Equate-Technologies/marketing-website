@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Equate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/pages.css"/>
+  <link rel="icon" href="/assets/favicon.ico"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/index.html" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      Equate
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Product</a></li>
+      <li><a href="/index.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="docs.html">Docs</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="signin.html" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary" data-waitlist>Request access</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-label">Contact</div>
+      <h1 class="page-title">Get in touch.</h1>
+      <p class="page-subtitle">Sales questions, partnership inquiries, or just want to learn more — we're a small team and we respond fast.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT LAYOUT -->
+  <section class="contact-section">
+    <div class="contact-inner">
+
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <h2 class="contact-form-heading">Send us a message</h2>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="contact-name">name</label>
+                <input id="contact-name" class="form-input" type="text" placeholder="Jane Smith" required/>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="contact-company">company</label>
+                <input id="contact-company" class="form-input" type="text" placeholder="Acme Corp"/>
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-email">email</label>
+              <input id="contact-email" class="form-input" type="email" placeholder="you@company.com" required/>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-reason">reason</label>
+              <select id="contact-reason" class="form-input form-select">
+                <option value="">Select a reason...</option>
+                <option value="sales">Sales / pricing</option>
+                <option value="enterprise">Enterprise inquiry</option>
+                <option value="partnership">Partnership</option>
+                <option value="support">Support</option>
+                <option value="security">Security</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-message">message</label>
+              <textarea id="contact-message" class="form-input form-textarea" placeholder="Tell us a bit about your infrastructure and what you're trying to solve..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="contact-submit">Send message</button>
+          </form>
+
+          <div id="contact-success" hidden class="form-success" style="margin-top: 24px;">
+            <div class="success-icon">✓</div>
+            <h3 class="success-heading">Message sent.</h3>
+            <p class="success-sub">We'll get back to you within one business day.</p>
+          </div>
+
+        </div>
+
+        <!-- Contact info sidebar -->
+        <div class="contact-info">
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">General inquiries</div>
+            <a href="mailto:hello@equate.io" class="contact-info-value">hello@equate.io</a>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Sales</div>
+            <a href="mailto:sales@equate.io" class="contact-info-value">sales@equate.io</a>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Security</div>
+            <a href="mailto:security@equate.io" class="contact-info-value">security@equate.io</a>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Privacy</div>
+            <a href="mailto:privacy@equate.io" class="contact-info-value">privacy@equate.io</a>
+          </div>
+
+          <hr class="contact-divider"/>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Response time</div>
+            <div class="contact-info-value">Within 1 business day</div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Early access</div>
+            <div class="contact-info-note">
+              Looking to join the waitlist?
+              <a href="#" data-waitlist>Request access →</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">
+        <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        Equate
+      </span>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <span class="footer-copy">© 2025 Equate Technologies, Inc.</span>
+    </div>
+  </footer>
+
+  <!-- WAITLIST MODAL -->
+  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal">
+      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+      <div id="form-default">
+        <div class="modal-eyebrow"><span class="eyebrow-dot"></span>early_access</div>
+        <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
+        <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
+        <form id="waitlist-form" novalidate>
+          <div id="form-error" hidden>
+            <div class="form-error-msg">⚠ <span id="error-message">Something went wrong. Please try again.</span></div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="waitlist-email">work_email</label>
+            <input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/>
+          </div>
+          <button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Join the waitlist</button>
+        </form>
+        <hr class="form-divider"/>
+        <div class="modal-trust">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          no_spam · unsubscribe_anytime
+        </div>
+      </div>
+      <div id="form-success" hidden class="form-success">
+        <div class="success-icon">✓</div>
+        <h3 class="success-heading">You're on the list.</h3>
+        <p class="success-sub">We'll be in touch when early access opens.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/main.js"></script>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('contact-form').hidden = true;
+      document.getElementById('contact-success').hidden = false;
+    });
+  </script>
+
+</body>
+</html>
