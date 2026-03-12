@@ -55,7 +55,7 @@ const formError    = document.getElementById('form-error');
 const errorMsg     = document.getElementById('error-message');
 
 // TODO: Replace with your API Gateway endpoint once backend is deployed
-const API_ENDPOINT = 'YOUR_API_GATEWAY_URL';
+const API_ENDPOINT = "https://7w9slqgxj2.execute-api.us-west-1.amazonaws.com/Production/waitlist/entry";
 
 function openModal() {
   modal.classList.add('open');
