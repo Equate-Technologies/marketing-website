@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign in — Equate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/pages.css"/>
+  <link rel="icon" href="/assets/favicon.ico"/>
+</head>
+<body class="auth-body">
+
+  <!-- Minimal nav -->
+  <nav class="nav-minimal">
+    <a href="/index.html" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      Equate
+    </a>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </nav>
+
+  <!-- SIGN IN CARD -->
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="modal-eyebrow"><span class="eyebrow-dot"></span>secure_access</div>
+        <h1 class="auth-heading">Sign in to Equate</h1>
+        <p class="auth-sub">Access your fleet dashboard and OOB sessions.</p>
+      </div>
+
+      <form class="auth-form" novalidate>
+        <div class="form-field">
+          <label class="form-label" for="signin-email">email</label>
+          <input id="signin-email" class="form-input" type="email" placeholder="you@company.com" autocomplete="email" required/>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="signin-password">
+            password
+            <a href="#" class="form-label-link">Forgot password?</a>
+          </label>
+          <input id="signin-password" class="form-input" type="password" placeholder="••••••••••••" autocomplete="current-password" required/>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Sign in</button>
+      </form>
+
+      <hr class="form-divider"/>
+
+      <div class="auth-sso">
+        <button class="btn-sso">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Continue with SSO
+        </button>
+      </div>
+
+      <p class="auth-footer-text">
+        Don't have an account? <a href="#" data-waitlist>Request early access</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- WAITLIST MODAL -->
+  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal">
+      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+      <div id="form-default">
+        <div class="modal-eyebrow"><span class="eyebrow-dot"></span>early_access</div>
+        <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
+        <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
+        <form id="waitlist-form" novalidate>
+          <div id="form-error" hidden>
+            <div class="form-error-msg">⚠ <span id="error-message">Something went wrong. Please try again.</span></div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="waitlist-email">work_email</label>
+            <input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/>
+          </div>
+          <button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Join the waitlist</button>
+        </form>
+        <hr class="form-divider"/>
+        <div class="modal-trust">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          no_spam · unsubscribe_anytime
+        </div>
+      </div>
+      <div id="form-success" hidden class="form-success">
+        <div class="success-icon">✓</div>
+        <h3 class="success-heading">You're on the list.</h3>
+        <p class="success-sub">We'll be in touch when early access opens.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
