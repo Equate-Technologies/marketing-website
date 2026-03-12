@@ -131,3 +131,5 @@ waitlistForm.addEventListener('submit', async (e) => {
     setLoading(false);
   }
 });
+
+// Test
