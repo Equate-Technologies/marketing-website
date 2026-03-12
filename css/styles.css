@@ -41,8 +41,12 @@ body {
   background: var(--bg);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Clip horizontal overflow on non-docs pages without breaking sticky */
+body:not(.docs-page) {
+  overflow-x: hidden;
 }
 
 /* ── NAV ── */
