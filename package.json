@@ -1,10 +1,11 @@
 {
   "name": "EquateSite",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Equate - Out-of-Band Network Management Platform",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js",
+    "test:verbose": "node test.js --verbose"
   },
   "private": true
 }
