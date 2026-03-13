@@ -178,7 +178,7 @@
 }
 
 .docs-content a {
-  color: var(--salmon); text-decoration: underline;
+  color: var(--salmon); text-decoration: none;
   text-underline-offset: 3px;
 }
 .docs-content a:hover { color: var(--salmon-dark); }
@@ -346,7 +346,7 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.62rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.09em;
-  color: var(--ink-muted); margin-bottom: 4px;
+  color: var(--salmon); margin-bottom: 4px;
 }
 .doc-nav-title {
   font-size: 0.88rem; font-weight: 700; color: var(--ink);
