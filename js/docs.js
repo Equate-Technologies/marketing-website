@@ -144,13 +144,15 @@
     });
   });
 
-  /* ── Active sidebar link based on current URL ── */
-  const currentPath = window.location.pathname;
+  /* ── Active sidebar link based on current URL (multi-page docs) ── */
+  const pathname = window.location.pathname;
+  const pathNorm = pathname.replace(/\/$/, '/index.html');
+  const currentFile = pathNorm.split('/').pop() || 'index.html';
+
   document.querySelectorAll('.sidebar-nav a').forEach((a) => {
-    const href = a.getAttribute('href') || '';
-    if (href !== '#' && currentPath.endsWith(href.replace('../', ''))) {
-      a.classList.add('active');
-    }
+    let href = (a.getAttribute('href') || '').replace(/#.*$/, '').replace(/^\\.\\//, '');
+    if (href === '' || href === 'index.html') href = 'index.html';
+    if (currentFile === href) a.classList.add('active');
   });
 
 })();
