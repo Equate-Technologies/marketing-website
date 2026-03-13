@@ -38,13 +38,10 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Epilogue', sans-serif;
-  background: #ffffff; /* light default */
+  background: var(--bg);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   transition: background 0.3s ease, color 0.3s ease;
-}
-[data-theme="dark"] body {
-  background: #1a1a1a; /* dark */
 }
 
 /* Clip horizontal overflow on non-docs pages without breaking sticky */
