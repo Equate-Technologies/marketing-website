@@ -150,7 +150,7 @@
   const currentFile = pathNorm.split('/').pop() || 'index.html';
 
   document.querySelectorAll('.sidebar-nav a').forEach((a) => {
-    let href = (a.getAttribute('href') || '').replace(/#.*$/, '').replace(/^\\.\\//, '');
+    let href = (a.getAttribute('href') || '').replace(/#.*$/, '').replace(/^\.\//, '');
     if (href === '' || href === 'index.html') href = 'index.html';
     if (currentFile === href) a.classList.add('active');
   });
