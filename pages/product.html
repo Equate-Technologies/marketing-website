@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product — Equate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/pages.css"/>
+  <link rel="stylesheet" href="/css/product.css"/>
+  <link rel="icon" href="/images/favicon.ico"/>
+</head>
+<body>
+  <nav>
+    <a href="/index.html" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="7" y1="24" x2="17" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="13" y1="24" x2="23" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      Equate
+    </a>
+
+                <ul class="nav-links">
+      <li><a href="/pages/product.html" class="nav-active active">Product</a></li>
+      <li><a href="/pages/how_it_works.html">How it works</a></li>
+      <li><a href="/pages/pricing.html">Pricing</a></li>
+      <li><a href="/pages/docs.html">Docs</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <a href="/pages/signin.html" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary" data-waitlist>Request access</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-eyebrow">platform</div>
+      <h1>The infrastructure behind <em>every connection.</em></h1>
+      <p>Equate is built from four interlocking layers. Together, they give your team eyes and hands at every remote site — even when the internet's gone.</p>
+      <div class="page-hero-actions">
+        <a href="#" class="btn btn-primary" data-waitlist>Request early access</a>
+        <a href="/pages/how_it_works.html" class="btn btn-outline">See how it works</a>
+      </div>
+    </section>
+
+    <section class="product-section">
+      <div class="product-text">
+        <div class="section-eyebrow">hardware</div>
+        <h2>The device that never gives up.</h2>
+        <p>A small hardware appliance sits at each remote location. It connects directly to on-site routers and switches via serial and console cables — the same low-level access technicians use. Unlike software-only solutions, the physical device never depends on the local network's health.</p>
+        <div class="product-stat">
+          <span>RS-232 serial</span> · RJ-45 console
+        </div>
+      </div>
+      <div class="product-visual">
+        <div class="device-shell">
+          <div class="device-leds">
+            <span class="device-led"></span>
+            <span class="device-led"></span>
+            <span class="device-led"></span>
+          </div>
+        </div>
+        <div class="cable-line cable-serial"></div>
+        <div class="cable-label serial">Serial / Console</div>
+        <div class="cable-line cable-cellular">
+          <div class="data-packet"></div>
+        </div>
+        <div class="cable-label cellular">Cellular LTE</div>
+      </div>
+    </section>
+
+    <section class="product-section reverse">
+      <div class="product-text">
+        <div class="section-eyebrow">agent</div>
+        <h2>Lightweight. Persistent. Self-healing.</h2>
+        <p>The Equate agent is a tiny service on the device. It immediately opens an outbound-only tunnel to Equate’s cloud over cellular — no inbound firewall rules, no VPNs. The agent auto-updates, self-heals, and keeps your engineers connected no matter what.</p>
+        <div class="feature-sub-grid">
+          <div class="feature-sub-card">
+            <div class="feature-sub-title">Heartbeats every 15 seconds</div>
+            <div class="feature-sub-desc">Signed heartbeat packets stream to Equate. Miss three in a row and your alerts fire instantly.</div>
+          </div>
+          <div class="feature-sub-card">
+            <div class="feature-sub-title">Outbound-only</div>
+            <div class="feature-sub-desc">The agent never listens on a port. All sessions are broker-initiated from the cloud — your firewall stays untouched.</div>
+          </div>
+          <div class="feature-sub-card">
+            <div class="feature-sub-title">Zero-maintenance</div>
+            <div class="feature-sub-desc">Install once. The cloud auto-updates the agent. No manual patching or nightly jobs.</div>
+          </div>
+          <div class="feature-sub-card">
+            <div class="feature-sub-title">Encrypted tunnel</div>
+            <div class="feature-sub-desc">TLS 1.3 plus authenticated session layer. The broker validates both ends before terminal data flows.</div>
+          </div>
+        </div>
+      </div>
+      <div class="product-visual">
+        <div class="agent-terminal" aria-live="polite" aria-label="Agent terminal log">
+          <div class="agent-terminal-header">
+            <div class="agent-terminal-title">agent@eq-tx2-01 ~ equate-agent</div>
+            <div class="agent-terminal-spots">
+              <span class="red"></span>
+              <span class="yellow"></span>
+              <span class="green"></span>
+            </div>
+          </div>
+          <div class="agent-terminal-body" data-agent-log></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section">
+      <div class="product-text">
+        <div class="section-eyebrow">cloud</div>
+        <h2>Your infrastructure's always-on backbone.</h2>
+        <p>Equate’s cloud runs on AWS serverless, scaling with your fleet. It brokers every session between engineers and agents. Session content is never stored — the cloud simply relays encrypted traffic and orchestrates alerts.</p>
+        <div class="product-stat">
+          <span>AWS broker.equate.io</span> · Alert engine + IoT Core
+        </div>
+      </div>
+      <div class="product-visual">
+        <div class="cloud-visual">
+          <svg viewBox="0 0 220 120" aria-hidden="true">
+            <circle class="cloud-node" cx="40" cy="60" r="24"/>
+            <circle class="cloud-node" cx="110" cy="40" r="24"/>
+            <circle class="cloud-node" cx="180" cy="60" r="24"/>
+            <path class="arch-connection flow" d="M60 60 L92 50 L110 40"/>
+            <path class="arch-connection flow" d="M118 40 L150 50 L180 60"/>
+            <path class="arch-connection" d="M40 60 L40 100 L110 100 L180 80"/>
+          </svg>
+          <div class="cloud-label">Agent (TX2) → AWS broker.equate.io ← IT Engineer</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section reverse">
+      <div class="product-text">
+        <div class="section-eyebrow">dashboard</div>
+        <h2>Every site. One screen.</h2>
+        <p>The Equate dashboard shows every managed location, status, device count, and last heartbeat. Click “Connect” to open a browser terminal without any VPN. Alerts fire the moment something starts to slip.</p>
+        <div class="product-stat">
+          <span>Fleet view · Instant alerts</span>
+        </div>
+        <div class="dashboard-actions">
+          <a href="#" class="btn btn-primary" data-waitlist>Connect from anywhere</a>
+          <a href="/pages/pricing.html" class="btn btn-outline">View pricing</a>
+        </div>
+      </div>
+      <div class="product-visual dashboard-visual">
+        <div class="dashboard-device-card">
+          <div class="device-card">
+            <div class="device-card-header">
+              <div class="card-dots">
+                <div class="card-dot card-dot-r"></div>
+                <div class="card-dot card-dot-y"></div>
+                <div class="card-dot card-dot-g"></div>
+              </div>
+              <div class="card-title-bar">equate.io — Fleet Overview</div>
+            </div>
+            <div class="device-card-body">
+              <div class="site-row">
+                <div class="site-info">
+                  <div class="site-icon" style="background:#f0f0f0; color:#333;">NY1</div>
+                  <div>
+                    <div class="site-name">New York — DC East</div>
+                    <div class="site-meta">48 devices · 2m ago</div>
+                  </div>
+                </div>
+                <div class="site-status">
+                  <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
+                  <button class="connect-btn" type="button">Connect</button>
+                </div>
+              </div>
+              <div class="site-row">
+                <div class="site-info">
+                  <div class="site-icon" style="background:#fce8e3; color:#c75a42;">TX2</div>
+                  <div>
+                    <div class="site-name">Austin — Branch Office</div>
+                    <div class="site-meta">12 devices · primary failover ready</div>
+                  </div>
+                </div>
+                <div class="site-status">
+                  <span class="status-badge status-oob"><span class="status-dot"></span>OOB Active</span>
+                  <button class="connect-btn" type="button">Connect</button>
+                </div>
+              </div>
+              <div class="site-row">
+                <div class="site-info">
+                  <div class="site-icon" style="background:#f0f0f0; color:#333;">LA3</div>
+                  <div>
+                    <div class="site-name">Los Angeles — West Hub</div>
+                    <div class="site-meta">31 devices · 1m ago</div>
+                  </div>
+                </div>
+                <div class="site-status">
+                  <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
+                  <button class="connect-btn" type="button">Connect</button>
+                </div>
+              </div>
+              <div class="site-row">
+                <div class="site-info">
+                  <div class="site-icon" style="background:#ebebeb; color:#7a7a7a;">CH4</div>
+                  <div>
+                    <div class="site-name">Chicago — Midwest DC</div>
+                    <div class="site-meta">22 devices · 8m ago</div>
+                  </div>
+                </div>
+                <div class="site-status">
+                  <span class="status-badge status-warning"><span class="status-dot"></span>Degraded</span>
+                  <button class="connect-btn" type="button">Connect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="terminal-panel">
+          <pre>
+Connected to Austin — Branch Office
+Cisco ISR4331 > show interfaces GigabitEthernet0/0/0
+GigabitEthernet0/0/0 is up, line protocol is up
+Internet address is 10.0.1.1/24
+MTU 1500 bytes, BW 1000000 Kbit/sec
+> <span class="cursor"></span>
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="arch-section">
+      <div class="section-eyebrow">full picture</div>
+      <h2>How it all fits together.</h2>
+      <p>Hover any component to trace the flow from router to cloud to your dashboard.</p>
+      <div class="arch-diagram">
+        <svg class="arch-svg" viewBox="0 0 860 280" aria-hidden="true">
+          <path class="arch-connection" d="M80 160 H320" />
+          <path class="arch-connection flow" d="M150 160 L260 60 L420 60"/>
+          <path class="arch-connection flow" d="M460 60 L620 60 L740 160"/>
+          <path class="arch-connection" d="M520 160 H740" />
+        </svg>
+        <div class="arch-grid">
+          <div class="arch-box">
+            <strong>Remote Site</strong>
+            Router / Switch (client gear)
+            <br/>Equate Physical Device
+            <br/>Agent (software)
+          </div>
+          <div class="arch-box">
+            <strong>Equate Cloud</strong>
+            AWS Broker · IoT Core · Lambda
+            <br/>Alert Engine
+          </div>
+          <div class="arch-box">
+            <strong>IT Team</strong>
+            Browser · Dashboard
+            <br/>Alerts (Slack / PagerDuty / Email)
+          </div>
+        </div>
+        <div class="arch-zone remote">
+          <div class="arch-tooltip">
+            <strong>Physical Device</strong> — Connects router/switch via serial and console. Runs Equate agent.
+            <br/><strong>Agent</strong> — Persists a cellular uplink. Heartbeats every 15s.
+          </div>
+        </div>
+        <div class="arch-zone cloud">
+          <div class="arch-tooltip">
+            <strong>AWS Broker</strong> — Authenticates agents and engineers. Routes session traffic and never stores terminal content.
+            <br/><strong>Alert Engine</strong> — Watches heartbeats. Fires alerts on misses.
+          </div>
+        </div>
+        <div class="arch-zone it">
+          <div class="arch-tooltip">
+            <strong>Dashboard</strong> — Single pane of glass. Click to connect to any device.
+            <br/><strong>Alerts</strong> — Instant notification via Slack, PagerDuty, or email.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-cta">
+      <h2>Ready to stay in when everything breaks?</h2>
+      <p>Join the waitlist. First pilots deploying soon.</p>
+      <div class="page-cta-actions">
+        <a href="#" class="btn btn-primary" data-waitlist>Request early access</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html">
+        <span class="footer-logo">
+          <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+            <line x1="7" y1="24" x2="17" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="13" y1="24" x2="23" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          Equate
+        </span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="/pages/privacy.html">Privacy</a></li>
+        <li><a href="/pages/terms.html">Terms</a></li>
+        <li><a href="/pages/security.html">Security</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Equate Technologies, Inc.</span>
+    </div>
+  </footer>
+
+  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal">
+      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+      <div id="form-default">
+        <div class="modal-eyebrow">
+          <span class="eyebrow-dot"></span>
+          early_access
+        </div>
+        <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
+        <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
+        <form id="waitlist-form" novalidate>
+          <div id="form-error" hidden>
+            <div class="form-error-msg">
+              ⚠ <span id="error-message">Something went wrong. Please try again.</span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="waitlist-email">work_email</label>
+            <input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/>
+          </div>
+          <button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Join the waitlist</button>
+        </form>
+        <hr class="form-divider"/>
+        <div class="modal-trust">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          no_spam · unsubscribe_anytime
+        </div>
+      </div>
+      <div id="form-success" hidden class="form-success">
+        <div class="success-icon">✓</div>
+        <h3 class="success-heading">You're on the list.</h3>
+        <p class="success-sub">We'll be in touch when early access opens. Keep an eye on your inbox.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/product.js"></script>
+</body>
+</html>
