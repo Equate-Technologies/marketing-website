@@ -33,11 +33,11 @@
       <li><a href="/pages/product.html">Product</a></li>
       <li><a href="/pages/how_it_works.html" class="nav-active active">How it works</a></li>
       <li><a href="/pages/pricing.html">Pricing</a></li>
-      <li><a href="/pages/docs.html">Docs</a></li>
+      <li><a href="/pages/docs/index.html">Docs</a></li>
     </ul>
     <div class="nav-actions">
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="icon-moon" viewBox="0 0 24 24">
+        <svg class="icon-moon" viewBox="0 0 24 24">Alr
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
         <svg class="icon-sun" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@
                     <div class="site-icon" style="background:#fce8e3; color:#c75a42;">TX2</div>
                     <div>
                       <div class="site-name">Austin — Branch Office</div>
-                      <div class="site-meta">12 devices · 0 lost beats</div>
+                      <div class="site-meta">12 devices · 1s ago</div>
                     </div>
                   </div>
                   <div class="site-status">
@@ -133,7 +133,7 @@
                     </div>
                   </div>
                   <div class="site-status">
-                    <span class="status-badge status-warning"><span class="status-dot"></span>Degraded</span>
+                    <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
                     <button class="connect-btn" type="button">Connect</button>
                   </div>
                 </div>
@@ -148,44 +148,43 @@
           </div>
         </div>
       </div>
-      <div class="topology-strip">
-        <div class="topo-node">
+    <div class="topology-strip">
+      <div class="topo-flow">
+        <div class="topo-node" data-node="TX2">
           <div class="topo-node-icon">TX2</div>
-          <div class="topo-node-label">TX2 Site</div>
+          <div class="topo-node-name">TX2 Site</div>
+          <div class="topo-node-detail" data-node-detail>Agent  Connected</div>
         </div>
-        <div class="topo-link link-primary">
-          <svg viewBox="0 0 150 12">
-            <path d="M10 6 L140 6"/>
-          </svg>
-          <div class="link-label">Primary</div>
-          <div class="link-badge">▶</div>
+        <div class="topo-connector" data-connector="site-net">
+          <span class="connector-line"></span>
+          <span class="connector-label" data-connector-label>Primary</span>
         </div>
-        <div class="topo-node">
+        <div class="topo-node" data-node="NET">
           <div class="topo-node-icon">NET</div>
-          <div class="topo-node-label">Internet</div>
+          <div class="topo-node-name">Internet</div>
+          <div class="topo-node-detail" data-node-detail>Primary · Healthy</div>
+          <span class="node-pill" data-node-pill>Primary active</span>
         </div>
-        <div class="topo-link link-cellular">
-          <svg viewBox="0 0 150 12">
-            <path d="M10 6 L140 6"/>
-          </svg>
-          <div class="link-label">Cellular</div>
-          <div class="link-badge">OOB</div>
+        <div class="topo-connector" data-connector="net-aws">
+          <span class="connector-line"></span>
+          <span class="connector-label" data-connector-label>Broker</span>
         </div>
-        <div class="topo-node">
+        <div class="topo-node" data-node="AWS">
           <div class="topo-node-icon">AWS</div>
-          <div class="topo-node-label">Equate Cloud</div>
+          <div class="topo-node-name">Equate Cloud</div>
+          <div class="topo-node-detail" data-node-detail>Broker · 12ms</div>
         </div>
-        <div class="topo-link link-primary">
-          <svg viewBox="0 0 150 12">
-            <path d="M10 6 L140 6"/>
-          </svg>
-          <div class="link-label">Broker</div>
+        <div class="topo-connector" data-connector="aws-ui">
+          <span class="connector-line"></span>
+          <span class="connector-label" data-connector-label>Dashboard</span>
         </div>
-        <div class="topo-node">
+        <div class="topo-node" data-node="UI">
           <div class="topo-node-icon">UI</div>
-          <div class="topo-node-label">Dashboard</div>
+          <div class="topo-node-name">Dashboard</div>
+          <div class="topo-node-detail" data-node-detail>Session OK</div>
         </div>
       </div>
+    </div>
     </div>
 
     <div class="scenario-explainer" data-explainer>

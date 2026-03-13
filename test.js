@@ -201,8 +201,8 @@ function testHtmlFile(filePath) {
   });
   
   // Test 6: Check for required scripts in docs pages with full layout (pages/docs/*.html; exclude redirect docs.html)
-  const isDocsLayoutPage = (fileName.includes(path.sep + 'docs' + path.sep) || fileName.includes('/docs/')) &&
-    content.includes('id="docs-sidebar"');
+  const isDocsLayoutPage = (fileName.includes(path.sep + 'docs' + path.sep) &&
+    content.includes('id="docs-sidebar"'));
   if (isDocsLayoutPage) {
     if (!content.includes('js/docs.js')) {
       error(fileName + ' missing required docs.js script');
