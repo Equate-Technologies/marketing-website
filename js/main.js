@@ -1,7 +1,7 @@
 /* ══════════════════════════════════════════════════
-   EQUATE — Landing Page Logic  (js/main.js)
-   nav.js must be loaded first for shared behavior.
-   ══════════════════════════════════════════════════ */
+  EQUATE — Landing Page Logic  (js/main.js)
+  nav.js must be loaded first for shared behavior.
+  ══════════════════════════════════════════════════ */
 
 // All modal / dark mode / scroll is handled in nav.js.
 // This file handles anything landing-page specific.
@@ -33,16 +33,60 @@
 
   /* ── Steps: highlight active step on scroll ── */
   // (Hero visual steps in how-section)
-  const steps = document.querySelectorAll('.step');
-  if (steps.length) {
-    const stepObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          steps.forEach((s) => s.classList.remove('step-active'));
-          entry.target.classList.add('step-active');
-        }
-      });
-    }, { threshold: 0.8 });
-    steps.forEach((s) => stepObserver.observe(s));
+  const stepNodes = Array.from(document.querySelectorAll('.how-section .step'));
+  let headingHovered = false;
+  let hoverInterval = null;
+  let cycleIndex = 0;
+  const howHeading = document.querySelector('.how-section .section-heading');
+
+  const highlightStepAt = (index) => {
+    stepNodes.forEach((step, idx) => {
+      step.classList.toggle('step-active', idx === index);
+    });
+  };
+
+  if (stepNodes.length) {
+    const stepObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!headingHovered && entry.isIntersecting) {
+            const entryIndex = stepNodes.indexOf(entry.target);
+            if (entryIndex !== -1) {
+              highlightStepAt(entryIndex);
+            }
+          }
+        });
+      },
+      { threshold: 0.8 }
+    );
+    stepNodes.forEach((step) => stepObserver.observe(step));
+  }
+
+  const cycleStep = () => {
+    cycleIndex = (cycleIndex + 1) % stepNodes.length;
+    highlightStepAt(cycleIndex);
+  };
+
+  if (howHeading && stepNodes.length) {
+    howHeading.addEventListener('mouseenter', () => {
+      if (hoverInterval) {
+        clearInterval(hoverInterval);
+      }
+      headingHovered = true;
+      const activeIndex = stepNodes.findIndex((step) => step.classList.contains('step-active'));
+      cycleIndex = activeIndex >= 0 ? activeIndex : 0;
+      cycleStep();
+      hoverInterval = setInterval(cycleStep, 900);
+    });
+
+    howHeading.addEventListener('mouseleave', () => {
+      headingHovered = false;
+      if (hoverInterval) {
+        clearInterval(hoverInterval);
+        hoverInterval = null;
+      }
+      cycleIndex = 0;
+      highlightStepAt(0);
+    });
   }
 })();
