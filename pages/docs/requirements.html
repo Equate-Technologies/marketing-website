@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Requirements — Docs — Equate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <script>
+    (function () {
+      const storedTheme = localStorage.getItem('equate-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/docs.css"/>
+  <link rel="icon" href="/images/favicon.ico"/>
+</head>
+<body class="docs-page">
+
+<nav>
+  <a href="/index.html" class="nav-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 30 30" fill="none">
+        <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Equate
+  </a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Product</a></li>
+    <li><a href="/index.html">How it works</a></li>
+    <li><a href="/pages/pricing.html">Pricing</a></li>
+    <li><a href="/pages/docs/index.html" class="active">Docs</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="/pages/signin.html" class="btn btn-ghost">Sign in</a>
+    <a href="#" class="btn btn-primary" data-waitlist>Request access</a>
+  </div>
+</nav>
+
+<div class="docs-layout">
+  <aside class="docs-sidebar" id="docs-sidebar">
+    <div class="sidebar-search">
+      <div class="sidebar-search-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="docs-search" class="sidebar-search-input" type="text" placeholder="Search docs..." autocomplete="off"/>
+        <div id="search-results"></div>
+      </div>
+    </div>
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Getting Started</span>
+        <ul class="sidebar-nav">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="quickstart.html">Quickstart</a></li>
+          <li><a href="requirements.html">Requirements</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Installation</span>
+        <ul class="sidebar-nav">
+          <li><a href="agent-install.html">Agent setup</a></li>
+          <li><a href="requirements.html#hardware">Supported hardware</a></li>
+          <li><a href="cellular.html">Cellular configuration</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Platform</span>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html">Dashboard overview</a></li>
+          <li><a href="sites.html">Managing sites</a></li>
+          <li><a href="access.html">Access control</a></li>
+          <li><a href="alerts.html">Alerts &amp; notifications</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Reference</span>
+        <ul class="sidebar-nav">
+          <li><a href="api.html">API reference</a></li>
+          <li><a href="audit.html">Audit logs</a></li>
+          <li><a href="security-model.html">Security model</a></li>
+        </ul>
+      </div>
+  </aside>
+
+  <main class="docs-main">
+    <button id="sidebar-toggle" class="sidebar-toggle">
+      <svg viewBox="0 0 24 24" width="16" height="16" style="stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      Menu
+    </button>
+    <div class="docs-content">
+
+      <div class="docs-breadcrumb">
+        <a href="/pages/docs/">Docs</a>
+        <span class="sep">›</span>
+        <span>Getting Started</span>
+        <span class="sep">›</span>
+        <span class="current">Requirements</span>
+      </div>
+
+      <section id="requirements" style="scroll-margin-top:80px; padding-top:48px;">
+        <h1>Requirements</h1>
+
+        <h2 id="hardware" style="scroll-margin-top:80px;">Hardware</h2>
+        <table style="width:100%; border-collapse:collapse; margin:14px 0 22px;">
+          <thead>
+          <tr>
+            <th style="font-family:'JetBrains Mono',monospace; font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted); padding:9px 13px; border-bottom:1px solid var(--border); text-align:left;">Requirement</th>
+            <th style="font-family:'JetBrains Mono',monospace; font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted); padding:9px 13px; border-bottom:1px solid var(--border); text-align:left;">Minimum</th>
+            <th style="font-family:'JetBrains Mono',monospace; font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted); padding:9px 13px; border-bottom:1px solid var(--border); text-align:left;">Recommended</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">CPU</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">ARMv7 / x86_64</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">Raspberry Pi 5 / x86_64</td></tr>
+          <tr><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">RAM</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">512 MB</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">2 GB+</td></tr>
+          <tr><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">Storage</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">2 GB</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">8 GB+</td></tr>
+          <tr><td style="padding:10px 13px; font-size:0.85rem; color:var(--ink-soft);">Connectivity</td><td style="padding:10px 13px; font-size:0.85rem; color:var(--ink-soft);">USB cellular modem</td><td style="padding:10px 13px; font-size:0.85rem; color:var(--ink-soft);">Dedicated cellular module</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Software</h2>
+        <table style="width:100%; border-collapse:collapse; margin:14px 0 22px;">
+          <thead>
+          <tr>
+            <th style="font-family:'JetBrains Mono',monospace; font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted); padding:9px 13px; border-bottom:1px solid var(--border); text-align:left;">Dependency</th>
+            <th style="font-family:'JetBrains Mono',monospace; font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted); padding:9px 13px; border-bottom:1px solid var(--border); text-align:left;">Version</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">OS</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">Debian 11+, Ubuntu 22.04+, Raspberry Pi OS (Bookworm)</td></tr>
+          <tr><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">Python</td><td style="padding:10px 13px; border-bottom:1px solid var(--border); font-size:0.85rem; color:var(--ink-soft);">3.10+</td></tr>
+          <tr><td style="padding:10px 13px; font-size:0.85rem; color:var(--ink-soft);">ser2net</td><td style="padding:10px 13px; font-size:0.85rem; color:var(--ink-soft);">4.3+</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="doc-nav">
+        <a href="quickstart.html" class="doc-nav-link prev">
+          <span class="doc-nav-dir">Previous</span>
+          <span class="doc-nav-title">← Quickstart</span>
+        </a>
+        <a href="agent-install.html" class="doc-nav-link next">
+          <span class="doc-nav-dir">Next</span>
+          <span class="doc-nav-title">Agent setup →</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/index.html">
+      <span class="footer-logo">
+        <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        Equate
+      </span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="/pages/privacy.html">Privacy</a></li>
+      <li><a href="/pages/terms.html">Terms</a></li>
+      <li><a href="/pages/security.html">Security</a></li>
+      <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Equate Technologies, Inc.</span>
+  </div>
+</footer>
+
+<div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-overlay" class="modal-overlay"></div>
+  <div class="modal">
+    <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+    <div id="form-default">
+      <div class="modal-eyebrow"><span class="eyebrow-dot"></span>early_access</div>
+      <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
+      <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
+      <form id="waitlist-form" novalidate>
+        <div id="form-error" hidden><div class="form-error-msg">⚠ <span id="error-message">Something went wrong.</span></div></div>
+        <div class="form-field">
+          <label class="form-label" for="waitlist-email">work_email</label>
+          <input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/>
+        </div>
+        <button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Join the waitlist</button>
+      </form>
+      <hr class="form-divider"/>
+      <div class="modal-trust">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        no_spam · unsubscribe_anytime
+      </div>
+    </div>
+    <div id="form-success" hidden class="form-success">
+      <div class="success-icon">✓</div>
+      <h3 class="success-heading">You're on the list.</h3>
+      <p class="success-sub">We'll be in touch when early access opens.</p>
+    </div>
+  </div>
+</div>
+
+<script src="/js/nav.js"></script>
+<script src="/js/docs.js"></script>
+</body>
+</html>
