@@ -2,6 +2,11 @@
    EQUATE — Docs Styles  (css/docs.css)
    ══════════════════════════════════════════════════ */
 
+/* Ensure docs pages have the same body background as index.html */
+.docs-page {
+  background: var(--bg);
+}
+
 /* Top nav must sit above sidebar and main content (no overlap) */
 .docs-page nav {
   z-index: 100;
