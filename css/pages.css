@@ -313,6 +313,23 @@
   .stat-strip { grid-template-columns: 1fr; }
 }
 
+/* ── CONTACT LAYOUT ── */
+.contact-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-body > footer {
+  margin-top: auto;
+}
+
 /* ══════════════════════════════════
    NEW PAGE STYLES (pricing, legal, auth, security, contact)
    ══════════════════════════════════ */
