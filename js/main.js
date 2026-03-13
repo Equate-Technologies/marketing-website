@@ -15,6 +15,7 @@
   // These animate via CSS; nothing extra needed.
 
   /* ── Connect button micro-interaction ── */
+  const howItWorksUrl = '/pages/how_it_works.html';
   document.querySelectorAll('.connect-btn').forEach((btn) => {
     btn.addEventListener('click', function () {
       const orig = this.textContent;
@@ -22,6 +23,11 @@
       this.style.background = 'var(--salmon)';
       this.style.color = '#fff';
       this.style.borderColor = 'var(--salmon)';
+
+      setTimeout(() => {
+        window.location.href = howItWorksUrl;
+      }, 500);
+
       setTimeout(() => {
         this.textContent = orig;
         this.style.background = '';

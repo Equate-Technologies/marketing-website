@@ -1,0 +1,73 @@
+# ── IDE & Editor ──────────────────────────────────────────────────────────────
+
+# Cursor
+.cursor/chat/
+.cursor/cache/
+.cursorignore
+
+# VS Code
+.vscode/
+!.vscode/extensions.json   # keep shared extension recommendations if present
+
+# JetBrains (WebStorm, etc.)
+.idea/
+*.iml
+
+# Vim / Neovim
+*.swp
+*.swo
+Session.vim
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+
+# ── OS Junk ───────────────────────────────────────────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+
+
+# ── Node (test runner / tooling only) ─────────────────────────────────────────
+# EquateSite.Frontend has no build step, but node_modules can appear
+# if anyone installs dev tooling locally.
+
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json   # remove this line if you want to track the lockfile
+
+
+# ── Build / Output artifacts ──────────────────────────────────────────────────
+dist/
+build/
+out/
+.cache/
+
+
+# ── Secrets & local config ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
