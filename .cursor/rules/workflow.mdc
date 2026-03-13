@@ -1,0 +1,19 @@
+---
+description: Git workflow and PR preferences
+alwaysApply: true
+---
+
+# Workflow and PR
+
+## GitHub links
+- **Never** give the user a link to GitHub (compare URLs, repo URLs, PR links, etc.).
+- If a PR or comparison would normally be shared via link, do not include it.
+
+## Pull requests
+- When you finish a change, let the user now. He will prompt you to make a commit + push.
+   - Commit + Push to the DEV branch, not a new branch.
+- Create the PR in the dev branch, this will be merged to prod. ALWAYS CREATE IN DEV BRANCH
+- Use `gh pr create` (or the project’s normal PR flow) to open the PR.
+- Name the pull request using the following format: HHMM(A/P)MMDDYY, where A or P is AM/PM.
+   - An example is 0610P031226, which represents 6:10 PM on 3/12/26
+- Do not suggest the user “open a link” to create the PR; create it yourself when possible.

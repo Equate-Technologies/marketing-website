@@ -2,24 +2,48 @@
    EQUATE — Docs Styles  (css/docs.css)
    ══════════════════════════════════════════════════ */
 
-/* ── DOCS LAYOUT ── */
+/* Ensure docs pages have the same body background as index.html */
+.docs-page {
+  background: var(--bg);
+}
+
+/* Top nav must sit above sidebar and main content (no overlap) */
+.docs-page nav {
+  z-index: 100;
+}
+
+/* ── DOCS LAYOUT ──
+   Reserve space for fixed nav (60px) so sidebar and main start below it. */
 .docs-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   min-height: calc(100vh - 60px);
   margin-top: 60px;
+  direction: ltr;
 }
 
-/* ── SIDEBAR ── */
+/* Sidebar: always first column (left); main content second (right).
+   z-index below main nav (100) so nav always sits on top. */
 .docs-sidebar {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: 60px;
+  align-self: start;
   height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px);
   overflow-y: auto;
   border-right: 1px solid var(--border);
   padding: 32px 0;
   background: var(--bg);
   transition: background 0.3s ease, border-color 0.3s ease;
+  z-index: 1;
+}
+
+.docs-sidebar > nav {
+  flex: 1;
+  min-height: 0;
 }
 
 .docs-sidebar::-webkit-scrollbar { width: 4px; }
@@ -102,6 +126,7 @@
 
 /* ── DOCS MAIN ── */
 .docs-main {
+  grid-column: 2;
   padding: 48px 64px;
   min-width: 0;
   max-width: 860px;

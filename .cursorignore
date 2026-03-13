@@ -1,0 +1,8 @@
+images/
+.idea/
+
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
