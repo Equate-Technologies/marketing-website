@@ -10,7 +10,8 @@ alwaysApply: true
 - If a PR or comparison would normally be shared via link, do not include it.
 
 ## Pull requests
-- When you finish a change (commit + push), let the user now. He will prompt you to make a PR.
+- When you finish a change, let the user now. He will prompt you to make a commit + push.
+   - Commit + Push to the DEV branch, not a new branch.
 - Create the PR in the dev branch, this will be merged to prod. ALWAYS CREATE IN DEV BRANCH
 - Use `gh pr create` (or the project’s normal PR flow) to open the PR.
 - Name the pull request using the following format: HHMM(A/P)MMDDYY, where A or P is AM/PM.
