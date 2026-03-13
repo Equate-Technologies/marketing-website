@@ -23,9 +23,3 @@ alwaysApply: true
 ## Searching
 - Do **not** run broad searches across the codebase to "understand context."
 - If you are unsure where something lives, ask the user instead of searching.
-
-## Output length
-- Keep responses concise and direct.
-- No explanations unless asked.
-- No summaries of what you just did.
-- Code only, no prose, when the task is a code change.

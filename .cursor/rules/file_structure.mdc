@@ -1,0 +1,43 @@
+---
+description: Project file structure and placement rules
+alwaysApply: true
+---
+
+# File Structure
+
+## Directory map
+- `css/styles.css` — Global styles, variables, nav, buttons, hero, modal
+- `css/docs.css` — Docs layout only (sidebar, TOC, code blocks)
+- `css/pages.css` — All non-index, non-docs pages (pricing, legal, auth, security, contact)
+- `js/nav.js` — Shared nav logic, dark mode, waitlist modal. Loaded on EVERY page.
+- `js/main.js` — Landing page specific logic only
+- `js/docs.js` — Docs pages only. Always loaded AFTER nav.js
+- `index.html` — Homepage, root level
+- `pages/` — All other HTML pages (pricing, contact, security, privacy, terms, signin)
+- `pages/docs/` — All docs pages
+- `images/` — Static assets only
+
+## Placement rules
+- New CSS goes in `styles.css` unless it is docs-specific or page-specific
+- New HTML pages go in `pages/` unless they are the homepage
+- New docs pages go in `pages/docs/`
+- Never create new CSS or JS files without asking first
+- Never create files in the root except `index.html`, `package.json`, `test.js`, and config files
+
+## Link format rules
+- All links in `pages/` and `pages/docs/` must use absolute paths starting with `/`
+- Example: `/css/styles.css`, `/js/nav.js`, `/pages/pricing.html`, `/pages/docs/index.html`
+- Never use relative links like `../` or `pricing.html` in nav or footer
+
+## Every HTML page must include
+- `<link rel="stylesheet" href="/css/styles.css"/>`
+- `<script src="/js/nav.js"></script>`
+- The waitlist modal block
+- The standard nav and footer
+
+## Every docs page (`pages/docs/*.html`) must also include
+- `<link rel="stylesheet" href="/css/docs.css"/>`
+- `<script src="/js/docs.js"></script>` (after nav.js)
+- `id="docs-sidebar"` on the sidebar
+- `id="sidebar-toggle"` button
+- The full sidebar nav block (all 4 sections)

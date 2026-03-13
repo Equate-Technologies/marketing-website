@@ -1,0 +1,23 @@
+---
+description: GitHub Etiquette
+alwaysApply: false
+---
+
+# Commits
+Always commit to the Dev branch. Never create a new branch.
+In your commit message, give a short change log (1-2 sentences)
+Only use the following command(s):
+- git add
+- git commit -m
+
+# Pushes
+Always push to the Dev branch. Never create a new branch
+Only use the following command(s):
+- git push origin dev
+
+# Pull Requests
+When making a pull request, you are to merge dev & prod.
+For the PR title, title it the following: HHMM(A/)MMDDYY, which represents the date
+Example: 9:00 PM on March 12, 2026 = {0900P031226}
+Only use the following command(s):
+- gh pr create --base prod --head dev --title {PR-TITLE}
