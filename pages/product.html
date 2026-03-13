@@ -70,32 +70,6 @@
       </div>
     </section>
 
-    <section class="product-section">
-      <div class="product-text">
-        <div class="section-eyebrow">hardware</div>
-        <h2>The device that never gives up.</h2>
-        <p>A small hardware appliance sits at each remote location. It connects directly to on-site routers and switches via serial and console cables — the same low-level access technicians use. Unlike software-only solutions, the physical device never depends on the local network's health.</p>
-        <div class="product-stat">
-          <span>RS-232 serial</span> · RJ-45 console
-        </div>
-      </div>
-      <div class="product-visual">
-        <div class="device-shell">
-          <div class="device-leds">
-            <span class="device-led"></span>
-            <span class="device-led"></span>
-            <span class="device-led"></span>
-          </div>
-        </div>
-        <div class="cable-line cable-serial"></div>
-        <div class="cable-label serial">Serial / Console</div>
-        <div class="cable-line cable-cellular">
-          <div class="data-packet"></div>
-        </div>
-        <div class="cable-label cellular">Cellular LTE</div>
-      </div>
-    </section>
-
     <section class="product-section reverse">
       <div class="product-text">
         <div class="section-eyebrow">agent</div>
@@ -137,43 +111,41 @@
 
     <section class="product-section">
       <div class="product-text">
-        <div class="section-eyebrow">cloud</div>
-        <h2>Your infrastructure's always-on backbone.</h2>
-        <p>Equate’s cloud runs on AWS serverless, scaling with your fleet. It brokers every session between engineers and agents. Session content is never stored — the cloud simply relays encrypted traffic and orchestrates alerts.</p>
+        <div class="section-eyebrow">internet</div>
+        <h2>Internet</h2>
+        <p>Details on routing, redundancy, and connectivity coming soon — this space will eventually describe how Equate navigates the public internet and private links.</p>
         <div class="product-stat">
-          <span>AWS broker.equate.io</span> · Alert engine + IoT Core
+          <span>Placeholder · In progress</span>
         </div>
       </div>
-      <div class="product-visual">
-        <div class="cloud-visual">
-          <svg viewBox="0 0 220 120" aria-hidden="true">
-            <circle class="cloud-node" cx="40" cy="60" r="24"/>
-            <circle class="cloud-node" cx="110" cy="40" r="24"/>
-            <circle class="cloud-node" cx="180" cy="60" r="24"/>
-            <path class="arch-connection flow" d="M60 60 L92 50 L110 40"/>
-            <path class="arch-connection flow" d="M118 40 L150 50 L180 60"/>
-            <path class="arch-connection" d="M40 60 L40 100 L110 100 L180 80"/>
-          </svg>
-          <div class="cloud-label">Agent (TX2) → AWS broker.equate.io ← IT Engineer</div>
+      <div class="product-visual placeholder-visual">
+        <div class="placeholder-panel">
+          <strong>Internet layer</strong>
+          <p>Content being prepared.</p>
         </div>
       </div>
     </section>
 
     <section class="product-section reverse">
       <div class="product-text">
-        <div class="section-eyebrow">dashboard</div>
-        <h2>Every site. One screen.</h2>
-        <p>The Equate dashboard shows every managed location, status, device count, and last heartbeat. Click “Connect” to open a browser terminal without any VPN. Alerts fire the moment something starts to slip.</p>
+        <div class="section-eyebrow">aws backend</div>
+        <h2>AWS backend</h2>
+        <p>Placeholder copy for now — this section will highlight broker, alerting, and storage-safe infrastructure once you provide the content.</p>
         <div class="product-stat">
-          <span>Fleet view · Instant alerts</span>
-        </div>
-        <div class="dashboard-actions">
-          <a href="#" class="btn btn-primary" data-waitlist>Connect from anywhere</a>
-          <a href="/pages/pricing.html" class="btn btn-outline">View pricing</a>
+          <span>Placeholder · In progress</span>
         </div>
       </div>
+      <div class="product-visual placeholder-visual">
+        <div class="placeholder-panel">
+          <strong>AWS layer</strong>
+          <p>Content being prepared.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section dashboard-section">
       <div class="product-visual dashboard-visual">
-        <div class="dashboard-device-card">
+        <div class="dashboard-device-card dashboard-panel">
           <div class="device-card">
             <div class="device-card-header">
               <div class="card-dots">
@@ -239,65 +211,24 @@
             </div>
           </div>
         </div>
-        <div class="terminal-panel">
+        <div class="terminal-panel dashboard-panel">
           <pre>
 Connected to Austin — Branch Office
-Cisco ISR4331 > show interfaces GigabitEthernet0/0/0
-GigabitEthernet0/0/0 is up, line protocol is up
-Internet address is 10.0.1.1/24
-MTU 1500 bytes, BW 1000000 Kbit/sec
-> <span class="cursor"></span>
+:Cisco ISR4331 > show interfaces GigabitEthernet0/0/0
+:GigabitEthernet0/0/0 is up, line protocol is up
+:Internet address is 10.0.1.1/24
+:MTU 1500 bytes, BW 1000000 Kbit/sec
+:> <span class="cursor"></span>
           </pre>
         </div>
       </div>
-    </section>
-
-    <section class="arch-section">
-      <div class="section-eyebrow">full picture</div>
-      <h2>How it all fits together.</h2>
-      <p>Hover any component to trace the flow from router to cloud to your dashboard.</p>
-      <div class="arch-diagram">
-        <svg class="arch-svg" viewBox="0 0 860 280" aria-hidden="true">
-          <path class="arch-connection" d="M80 160 H320" />
-          <path class="arch-connection flow" d="M150 160 L260 60 L420 60"/>
-          <path class="arch-connection flow" d="M460 60 L620 60 L740 160"/>
-          <path class="arch-connection" d="M520 160 H740" />
-        </svg>
-        <div class="arch-grid">
-          <div class="arch-box">
-            <strong>Remote Site</strong>
-            Router / Switch (client gear)
-            <br/>Equate Physical Device
-            <br/>Agent (software)
-          </div>
-          <div class="arch-box">
-            <strong>Equate Cloud</strong>
-            AWS Broker · IoT Core · Lambda
-            <br/>Alert Engine
-          </div>
-          <div class="arch-box">
-            <strong>IT Team</strong>
-            Browser · Dashboard
-            <br/>Alerts (Slack / PagerDuty / Email)
-          </div>
-        </div>
-        <div class="arch-zone remote">
-          <div class="arch-tooltip">
-            <strong>Physical Device</strong> — Connects router/switch via serial and console. Runs Equate agent.
-            <br/><strong>Agent</strong> — Persists a cellular uplink. Heartbeats every 15s.
-          </div>
-        </div>
-        <div class="arch-zone cloud">
-          <div class="arch-tooltip">
-            <strong>AWS Broker</strong> — Authenticates agents and engineers. Routes session traffic and never stores terminal content.
-            <br/><strong>Alert Engine</strong> — Watches heartbeats. Fires alerts on misses.
-          </div>
-        </div>
-        <div class="arch-zone it">
-          <div class="arch-tooltip">
-            <strong>Dashboard</strong> — Single pane of glass. Click to connect to any device.
-            <br/><strong>Alerts</strong> — Instant notification via Slack, PagerDuty, or email.
-          </div>
+      <div class="product-text">
+        <div class="section-eyebrow">dashboard</div>
+        <h2>Every site. One screen.</h2>
+        <p>The Equate dashboard shows every managed location, status, device count, and last heartbeat. Click “Connect” to open a browser terminal without any VPN. Alerts fire the moment something starts to slip.</p>
+        <div class="dashboard-actions">
+          <a href="#" class="btn btn-primary" data-waitlist>Connect from anywhere</a>
+          <a href="/pages/pricing.html" class="btn btn-outline">View pricing</a>
         </div>
       </div>
     </section>

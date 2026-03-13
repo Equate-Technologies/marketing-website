@@ -253,7 +253,7 @@
 .log-line {
   opacity: 0;
   transform: translateY(6px);
-  animation: logLine 0.35s ease forwards;
+  animation: logLineFade 4.4s ease forwards;
 }
 
 .log-line span { color: var(--bg); }
@@ -261,9 +261,23 @@
 .log-line .hb { color: #febc2e; }
 .log-line .ok { color: #28c840; }
 
-@keyframes logLine {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes logLineFade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
 }
 
 /* ── CLOUD LAYOUT ── */
@@ -311,8 +325,74 @@
 .dashboard-visual {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 10px;
   align-items: start;
+  justify-items: center;
+}
+
+.dashboard-visual > * {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dashboard-panel {
+  width: min(520px, 100%);
+  max-width: 520px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-self: flex-start;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.dashboard-section {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.dashboard-section .dashboard-visual {
+  width: 100%;
+}
+
+.dashboard-section .product-text {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ── PLACEHOLDER PANELS ── */
+.placeholder-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+}
+
+.placeholder-panel {
+  width: 100%;
+  max-width: 320px;
+  padding: 32px;
+  border: 1px dashed var(--border);
+  background: var(--bg-2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--ink-muted);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+}
+
+.placeholder-panel strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
 }
 
 .terminal-panel {
@@ -320,10 +400,14 @@
   color: var(--bg);
   border-radius: var(--radius-lg);
   padding: 18px;
-  min-height: 260px;
   font-family: 'JetBrains Mono', monospace;
   border: 1px solid rgba(255,255,255,0.05);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+  width: min(520px, 100%);
+  max-width: 520px;
+  margin: 0;
+  align-self: flex-start;
+  box-sizing: border-box;
 }
 
 .terminal-panel pre {
@@ -358,8 +442,8 @@
 }
 
 .dashboard-device-card {
-  max-width: 420px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 540px;
 }
 
 /* ── ARCHITECTURE DIAGRAM ── */
