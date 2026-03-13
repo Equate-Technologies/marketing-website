@@ -1,0 +1,25 @@
+---
+description: Context and token efficiency rules
+alwaysApply: true
+---
+
+# Context Efficiency
+
+## File access
+- **Never** read the entire codebase or multiple files at once unless explicitly told to.
+- Read **only** the specific file(s) needed for the current task.
+- If you need to understand structure, ask the user which files are relevant — do not scan directories yourself.
+- Do **not** use `@folder` or broad glob patterns to pull in context. Use `@file` only.
+
+## Planning before acting
+- For any task touching more than 2 files, **stop and list** the files you plan to edit before making any changes.
+- Get confirmation from the user before proceeding with multi-file edits.
+
+## Large refactors
+- Break large tasks (e.g. reformatting multiple pages) into **one file at a time**.
+- Complete and confirm each file before moving to the next.
+- Never rewrite or reformat files that were not explicitly mentioned in the prompt.
+
+## Searching
+- Do **not** run broad searches across the codebase to "understand context."
+- If you are unsure where something lives, ask the user instead of searching.

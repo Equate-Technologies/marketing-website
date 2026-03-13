@@ -1,0 +1,37 @@
+---
+description: Code style and formatting preferences
+alwaysApply: true
+---
+
+# Code Style
+
+## CSS
+- Use existing CSS variables only — never hardcode colors or radii
+  - Colors: `var(--bg)`, `var(--ink)`, `var(--salmon)`, `var(--border)`, etc.
+  - Radii: `var(--radius)` (8px), `var(--radius-lg)` (16px)
+- Dark mode is handled via `[data-theme="dark"]` overrides — never use `prefers-color-scheme`
+- All transitions on theme-affected properties must use `0.3s ease`
+- Never add inline styles to HTML unless absolutely unavoidable. Use classes.
+- New component classes go at the bottom of the relevant CSS file with a `/* ── LABEL ── */` header comment
+
+## HTML
+- Use semantic tags (`<section>`, `<aside>`, `<nav>`, `<footer>`, `<main>`)
+- All images must have `alt` attributes
+- Buttons that are not form submits must have `type="button"`
+- No inline `onclick` handlers — use `addEventListener` in JS
+
+## JavaScript
+- All JS is vanilla, no frameworks or imports
+- Wrap all logic in `(function () { 'use strict'; })()` IIFEs
+- Use `const` and `let`, never `var`
+- Event listeners go in the relevant JS file, never inline in HTML
+
+## Fonts
+- Headings and UI: `'Epilogue', sans-serif`
+- Monospace/labels/code: `'JetBrains Mono', monospace`
+- Never introduce new font families
+
+## Naming
+- CSS classes use kebab-case
+- JS variables use camelCase
+- IDs use kebab-case
