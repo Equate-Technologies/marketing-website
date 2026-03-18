@@ -1,12 +1,10 @@
-name: Deploy to S3 Development Website
+name: Deploy to S3
 
-on:
+"on":
   push:
-    branches:
-      - dev
-  pull_request:
-    branches:
-      - prod
+    branches: ["dev"]
+  pull_request: 
+    branches: ["prod"]
 
 permissions:
   id-token: write
@@ -45,5 +43,5 @@ jobs:
       - name: Invalidate CloudFront
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID_DEV }} \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
