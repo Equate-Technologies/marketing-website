@@ -1,12 +1,10 @@
-name: Deploy to S3 Development Website
+name: Deploy to S3
 
-on:
+"on":
   push:
-    branches:
-      - dev
-  pull_request:
-    branches:
-      - prod
+    branches: ["dev"]
+  pull_request: 
+    branches: ["prod"]
 
 permissions:
   id-token: write

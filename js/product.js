@@ -26,6 +26,8 @@
     '<span class="dim">[12:05:02]</span> <span class="hb">♥</span> heartbeat sent · seq=4'
   ];
 
+  const lineDelay = 950;
+  const logAnimationDuration = 4400;
   let lineTimers = [];
   let loopTimer = null;
 
@@ -48,17 +50,55 @@
         const entry = document.createElement('div');
         entry.className = 'log-line';
         entry.innerHTML = line;
+        entry.addEventListener('animationend', () => {
+          if (entry.parentNode === logContainer) {
+            logContainer.removeChild(entry);
+          }
+        });
         logContainer.appendChild(entry);
-      }, index * 950);
+      }, index * lineDelay);
 
       lineTimers.push(timer);
     });
 
-    const totalDuration = logLines.length * 950 + 2000;
+    const totalDuration = logLines.length * lineDelay + logAnimationDuration;
     loopTimer = setTimeout(playLog, totalDuration);
   }
 
   if (logContainer) {
     playLog();
+  }
+
+  const dashboardDeviceCard = document.querySelector('.dashboard-device-card');
+  const terminalPanel = document.querySelector('.terminal-panel');
+
+  function syncDashboardPanels() {
+    if (!dashboardDeviceCard || !terminalPanel) {
+      return;
+    }
+
+    const cardHeight = dashboardDeviceCard.offsetHeight;
+    const panelHeight = terminalPanel.offsetHeight;
+    const targetHeight = Math.max(cardHeight, panelHeight);
+
+    if (!targetHeight) {
+      return;
+    }
+
+    dashboardDeviceCard.style.minHeight = `${targetHeight}px`;
+    terminalPanel.style.minHeight = `${targetHeight}px`;
+  }
+
+  if (dashboardDeviceCard && terminalPanel) {
+    syncDashboardPanels();
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const panelObserver = new ResizeObserver(syncDashboardPanels);
+      panelObserver.observe(dashboardDeviceCard);
+      panelObserver.observe(terminalPanel);
+    }
+
+    window.addEventListener('resize', syncDashboardPanels);
+    window.addEventListener('load', syncDashboardPanels);
   }
 }());
