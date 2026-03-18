@@ -100,6 +100,12 @@
     }
   };
 
+const TX2_META_TIMINGS = {
+  'state-up': '12 devices · 1s ago',
+  'state-down': '12 devices · 10m ago',
+  'state-degraded': '12 devices · 45s ago'
+};
+
   const demoPanel = document.querySelector('.demo-panel');
   const tabButtons = Array.from(document.querySelectorAll('.scenario-tab'));
   const logRoot = document.querySelector('[data-log]');
@@ -232,6 +238,10 @@
 
     if (tx2Row) {
       tx2Row.classList.toggle('affected', !!state.highlightTx2);
+    const metaEl = tx2Row.querySelector('.site-meta');
+    if (metaEl) {
+      metaEl.textContent = TX2_META_TIMINGS[stateKey] || metaEl.textContent;
+    }
     }
 
     renderLog(state.log);
