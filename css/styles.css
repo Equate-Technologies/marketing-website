@@ -916,8 +916,17 @@ footer {
   font-size: 0.95rem; color: var(--ink); letter-spacing: -0.02em;
   display: flex; align-items: center; gap: 8px; text-decoration: none;
 }
-.footer-copy { font-size: 0.75rem; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; }
-.footer-links { display: flex; gap: 22px; list-style: none; }
+.footer-copy {
+  font-size: 0.75rem; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace;
+  text-align: right;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  list-style: none;
+}
 .footer-links a { font-size: 0.78rem; color: var(--ink-muted); text-decoration: none; transition: color 0.15s; }
 .footer-links a:hover { color: var(--ink); }
 
