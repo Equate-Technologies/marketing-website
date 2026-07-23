@@ -3,267 +3,29 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>How it works — Equate</title>
+  <title>How Equate works — Network Monitoring</title>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-  <script>
-    (function () {
-      const storedTheme = localStorage.getItem('equate-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-  <link rel="stylesheet" href="/css/styles.css"/>
-  <link rel="stylesheet" href="/css/pages.css"/>
-  <link rel="stylesheet" href="/css/how_it_works.css"/>
-  <link rel="icon" href="/images/favicon.ico"/>
+  <link rel="stylesheet" href="../css/styles.css"/><link rel="stylesheet" href="../css/pages.css"/><link rel="stylesheet" href="../css/how_it_works.css"/><link rel="icon" href="../images/favicon.ico"/>
 </head>
 <body>
-  <nav>
-    <a href="/index.html" class="nav-logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="7" y1="24" x2="17" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-          <line x1="13" y1="24" x2="23" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      Equate
-    </a>
-                <ul class="nav-links">
-      <li><a href="/pages/product.html">Product</a></li>
-      <li><a href="/pages/how_it_works.html" class="nav-active active">How it works</a></li>
-      <li><a href="/pages/pricing.html">Pricing</a></li>
-      <li><a href="/pages/docs/index.html">Docs</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="icon-moon" viewBox="0 0 24 24">Alr
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-      </button>
-      <a href="/pages/signin.html" class="btn btn-ghost">Sign in</a>
-      <a href="#" class="btn btn-primary" data-waitlist>Request access</a>
-    </div>
-  </nav>
-
+  <nav><a href="../index.html" class="nav-logo"><span class="logo-mark"><img src="../images/logo.svg" alt="Equate logo"/></span>Equate</a><ul class="nav-links"><li><a href="/pages/product.html">Product</a></li><li><a href="/pages/how_it_works.html" class="active">How it works</a></li><li><a href="/pages/pricing.html">Deployment planning</a></li><li><a href="/pages/docs/index.html">Docs</a></li></ul><div class="nav-actions"><a href="/pages/signin.html" class="btn btn-ghost">Dashboard access</a><a href="#" class="btn btn-primary" data-waitlist>Talk to Equate</a></div></nav>
   <main>
-    <section class="page-hero">
-      <div class="page-hero-eyebrow">interactive demo</div>
-      <h1>Watch Equate work <em>in real time.</em></h1>
-      <p>Pick a scenario. See exactly what happens across every layer — from the remote site to your dashboard.</p>
+    <section class="page-hero"><div class="page-hero-eyebrow">Architecture</div><h1>Monitoring that stays<br/><em>outside the blast radius.</em></h1><p>Equate keeps customer-network access on site. The cloud receives validated, durable telemetry and presents monitoring state without gaining a management path into the customer plane.</p><div class="page-hero-actions"><a href="/pages/docs/index.html" class="btn btn-primary">Read the technical overview</a></div></section>
+
+    <section class="plane-diagram" aria-label="Equate two-plane architecture">
+      <article class="plane"><div class="plane-label">Customer OOB monitoring plane</div><h2>Collect locally.</h2><div class="plane-stack"><div class="plane-node"><strong>SNMPv2c devices</strong>Configured devices are independently polled.</div><div class="plane-node"><strong>SNMP Collector</strong>Normalizes device, interface, health, and heartbeat observations.</div><div class="plane-node"><strong>SQLite outbox</strong>Persists telemetry before delivery and retains it during transport outages.</div><div class="plane-node"><strong>Local operator controls</strong>Unix-socket TUI and status surfaces remain local only.</div></div></article>
+      <div class="plane-bridge">outbound-only<br/>MQTT/TLS · QoS 1<br/>→</div>
+      <article class="plane"><div class="plane-label">UI/UX cloud plane</div><h2>Understand centrally.</h2><div class="plane-stack"><div class="plane-node"><strong>Ingestion</strong>Validates routes and payloads, deduplicates, then persists transactionally.</div><div class="plane-node"><strong>PostgreSQL</strong>The authoritative history and current monitoring state.</div><div class="plane-node"><strong>Read-only API</strong>Shapes monitoring evidence for frontend clients.</div><div class="plane-node"><strong>Dashboard</strong>Shows sites, devices, interfaces, history, and health evidence.</div></div></article>
     </section>
 
-    <div class="scenario-tabs">
-      <button type="button" class="scenario-tab active" data-state="state-up">Primary Link Up</button>
-      <button type="button" class="scenario-tab" data-state="state-down">Primary Link Down (Cell On)</button>
-      <button type="button" class="scenario-tab" data-state="state-degraded">Primary Link Degraded (Cell Notification)</button>
-    </div>
+    <section class="architecture-section"><div class="architecture-inner"><div class="section-label">Reliable delivery</div><h2 class="section-heading">Observe first. Deliver safely.</h2><p class="section-sub">MQTT is a delivery boundary, not the system of record. The collector continues polling when cloud transport is unavailable.</p><div class="diagram-grid"><article class="diagram-card"><div class="preview-label">01 · collector</div><h3>Enqueue before publish</h3><div class="flow-diagram"><span class="flow-node">Poll</span><span class="flow-arrow">→</span><span class="flow-node is-accent">SQLite outbox</span><span class="flow-arrow">→</span><span class="flow-node">MQTT/TLS</span></div><p>The collector removes buffered telemetry only after broker acknowledgement.</p></article><article class="diagram-card"><div class="preview-label">02 · ingestion</div><h3>Commit before acknowledge</h3><div class="flow-diagram"><span class="flow-node">Validate</span><span class="flow-arrow">→</span><span class="flow-node">Deduplicate</span><span class="flow-arrow">→</span><span class="flow-node is-accent">Commit</span></div><p>Database failure leaves a message unacknowledged so QoS 1 delivery can retry safely.</p></article><article class="diagram-card"><div class="preview-label">03 · dashboard</div><h3>Present persisted evidence</h3><div class="flow-diagram"><span class="flow-node">PostgreSQL</span><span class="flow-arrow">→</span><span class="flow-node">API</span><span class="flow-arrow">→</span><span class="flow-node is-accent">Dashboard</span></div><p>The dashboard reads API projections; it does not query devices, collectors, or the database directly.</p></article></div></div></section>
 
-    <div class="demo-panel" data-state="state-up">
-      <div class="demo-split">
-        <div>
-          <div class="demo-col-header">Dashboard view</div>
-          <div class="demo-column">
-            <div class="device-card">
-              <div class="device-card-header">
-                <div class="card-dots">
-                  <div class="card-dot card-dot-r"></div>
-                  <div class="card-dot card-dot-y"></div>
-                  <div class="card-dot card-dot-g"></div>
-                </div>
-                <div class="card-title-bar">equate.io — Fleet Overview</div>
-              </div>
-              <div class="device-card-body">
-                <div class="site-row" data-site="NY1">
-                  <div class="site-info">
-                    <div class="site-icon" style="background:#f0f0f0; color:#333;">NY1</div>
-                    <div>
-                      <div class="site-name">New York — DC East</div>
-                      <div class="site-meta">48 devices · 3s ago</div>
-                    </div>
-                  </div>
-                  <div class="site-status">
-                    <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
-                    <button class="connect-btn" type="button">Connect</button>
-                  </div>
-                </div>
-                <div class="site-row" data-site="TX2">
-                  <div class="site-info">
-                    <div class="site-icon" style="background:#fce8e3; color:#c75a42;">TX2</div>
-                    <div>
-                      <div class="site-name">Austin — Branch Office</div>
-                      <div class="site-meta">12 devices · 1s ago</div>
-                    </div>
-                  </div>
-                  <div class="site-status">
-                    <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
-                    <button class="connect-btn" type="button">Connect</button>
-                  </div>
-                </div>
-                <div class="site-row" data-site="LA3">
-                  <div class="site-info">
-                    <div class="site-icon" style="background:#f0f0f0; color:#333;">LA3</div>
-                    <div>
-                      <div class="site-name">Los Angeles — West Hub</div>
-                      <div class="site-meta">31 devices · 2s ago</div>
-                    </div>
-                  </div>
-                  <div class="site-status">
-                    <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
-                    <button class="connect-btn" type="button">Connect</button>
-                  </div>
-                </div>
-                <div class="site-row" data-site="CH4">
-                  <div class="site-info">
-                    <div class="site-icon" style="background:#ebebeb; color:#7a7a7a;">CH4</div>
-                    <div>
-                      <div class="site-name">Chicago — Midwest DC</div>
-                      <div class="site-meta">22 devices · 5s ago</div>
-                    </div>
-                  </div>
-                  <div class="site-status">
-                    <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
-                    <button class="connect-btn" type="button">Connect</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="demo-col-header">Event log</div>
-          <div class="demo-column">
-            <div class="event-log" data-log></div>
-          </div>
-        </div>
-      </div>
-    <div class="topology-strip">
-      <div class="topo-flow">
-        <div class="topo-node" data-node="TX2">
-          <div class="topo-node-icon">TX2</div>
-          <div class="topo-node-name">TX2 Site</div>
-          <div class="topo-node-detail" data-node-detail>Agent  Connected</div>
-        </div>
-        <div class="topo-connector" data-connector="site-net">
-          <span class="connector-line"></span>
-          <span class="connector-label" data-connector-label>Primary</span>
-        </div>
-        <div class="topo-node" data-node="NET">
-          <div class="topo-node-icon">NET</div>
-          <div class="topo-node-name">Internet</div>
-          <div class="topo-node-detail" data-node-detail>Primary · Healthy</div>
-          <span class="node-pill" data-node-pill>Primary active</span>
-        </div>
-        <div class="topo-connector" data-connector="net-aws">
-          <span class="connector-line"></span>
-          <span class="connector-label" data-connector-label>Broker</span>
-        </div>
-        <div class="topo-node" data-node="AWS">
-          <div class="topo-node-icon">AWS</div>
-          <div class="topo-node-name">Equate Cloud</div>
-          <div class="topo-node-detail" data-node-detail>Broker · 12ms</div>
-        </div>
-        <div class="topo-connector" data-connector="aws-ui">
-          <span class="connector-line"></span>
-          <span class="connector-label" data-connector-label>Dashboard</span>
-        </div>
-        <div class="topo-node" data-node="UI">
-          <div class="topo-node-icon">UI</div>
-          <div class="topo-node-name">Dashboard</div>
-          <div class="topo-node-detail" data-node-detail>Session OK</div>
-        </div>
-      </div>
-    </div>
-    </div>
+    <section class="health-model"><div class="health-model-header"><div class="section-label">Health evidence</div><h2>Make impact visible without guessing.</h2><p>Health is evaluated where the collector can observe polling results and configured dependencies. The dashboard preserves that evidence rather than recomputing it.</p></div><div class="health-grid"><article class="health-card is-healthy"><span class="health-marker"></span><h3>Healthy</h3><p>The device responded and its temperature is below the active threshold.</p></article><article class="health-card is-warning"><span class="health-marker"></span><h3>Warning</h3><p>The device responded, but temperature is at or above its collector policy threshold.</p></article><article class="health-card is-critical"><span class="health-marker"></span><h3>Critical</h3><p>The device is directly unreachable after the configured consecutive-failure threshold.</p></article><article class="health-card is-unknown"><span class="health-marker"></span><h3>Unknown impact</h3><p>All configured upstream paths are unavailable. This is dependency evidence, not a claim that the device itself has failed.</p></article></div></section>
 
-    <div class="scenario-explainer" data-explainer>
-      <h3 class="explainer-heading">Everything's healthy.</h3>
-      <p class="explainer-body">
-        The Equate agent at TX2 is sending heartbeats every 15 seconds over the cellular link. The primary internet connection is fully operational. Your dashboard is green across the board, and Equate is silently confirming the fleet is stable.
-      </p>
-    </div>
-
-    <section class="page-cta">
-      <h2>Need a live demo?</h2>
-      <p>Every scenario above is powered by the same core stack — hardware, agent, cloud, dashboard. Request early access to pilot the platform with your team.</p>
-      <div class="page-cta-actions">
-        <a href="#" class="btn btn-primary" data-waitlist>Request early access</a>
-      </div>
-    </section>
+    <section class="page-cta"><h2>Plan the monitoring path.</h2><p>Review collector placement, inventory, outbound connectivity, and dashboard requirements before rollout.</p><div class="page-cta-actions"><a href="/pages/contact.html" class="btn btn-primary">Talk to the team</a></div></section>
   </main>
-
-  <footer>
-    <div class="footer-inner">
-      <a href="/index.html">
-        <span class="footer-logo">
-          <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
-            <line x1="7" y1="24" x2="17" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-            <line x1="13" y1="24" x2="23" y2="6" stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-          </svg>
-          Equate
-        </span>
-      </a>
-      <ul class="footer-links">
-        <li><a href="/pages/privacy.html">Privacy</a></li>
-        <li><a href="/pages/terms.html">Terms</a></li>
-        <li><a href="/pages/security.html">Security</a></li>
-        <li><a href="/pages/contact.html">Contact</a></li>
-      </ul>
-      <span class="footer-copy">© 2026 Equate Technologies, Inc.</span>
-    </div>
-  </footer>
-
-  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div id="modal-overlay" class="modal-overlay"></div>
-    <div class="modal">
-      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
-      <div id="form-default">
-        <div class="modal-eyebrow">
-          <span class="eyebrow-dot"></span>
-          early_access
-        </div>
-        <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
-        <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
-        <form id="waitlist-form" novalidate>
-          <div id="form-error" hidden>
-            <div class="form-error-msg">
-              ⚠ <span id="error-message">Something went wrong. Please try again.</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="waitlist-email">work_email</label>
-            <input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/>
-          </div>
-          <button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Join the waitlist</button>
-        </form>
-        <hr class="form-divider"/>
-        <div class="modal-trust">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          no_spam · unsubscribe_anytime
-        </div>
-      </div>
-      <div id="form-success" hidden class="form-success">
-        <div class="success-icon">✓</div>
-        <h3 class="success-heading">You're on the list.</h3>
-        <p class="success-sub">We'll be in touch when early access opens. Keep an eye on your inbox.</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="/js/nav.js"></script>
-  <script src="/js/how_it_works.js"></script>
+  <footer><div class="footer-inner"><a href="../index.html"><span class="footer-logo"><img src="../images/logo.svg" alt="Equate logo"/>Equate</span></a><ul class="footer-links"><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/security.html">Security</a></li><li><a href="/pages/contact.html">Contact</a></li></ul><span class="footer-copy">© 2026 Equate Technologies, Inc.</span></div></footer>
+  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div id="modal-overlay" class="modal-overlay"></div><div class="modal"><button id="modal-close" class="modal-close" type="button" aria-label="Close">✕</button><div id="form-default"><div class="modal-eyebrow"><span class="eyebrow-dot"></span>deployment_planning</div><h2 id="modal-title" class="modal-heading">Talk to the Equate team</h2><p class="modal-sub">We’ll help you evaluate a monitoring deployment.</p><form id="waitlist-form" novalidate><div id="form-error" hidden><div class="form-error-msg">⚠ <span id="error-message">Something went wrong. Please try again.</span></div></div><div class="form-field"><label class="form-label" for="waitlist-email">work_email</label><input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/></div><button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Request a conversation</button></form></div><div id="form-success" hidden class="form-success"><div class="success-icon">✓</div><h3 class="success-heading">Thanks for reaching out.</h3><p class="success-sub">We’ll be in touch to discuss your monitoring environment.</p></div></div></div>
+  <script src="../js/nav.js"></script><script src="../js/how_it_works.js"></script>
 </body>
 </html>

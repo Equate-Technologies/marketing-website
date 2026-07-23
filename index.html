@@ -3,371 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Equate</title>
+  <title>Equate — Network Monitoring</title>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-  <script>
-    (function () {
-      const storedTheme = localStorage.getItem('equate-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="icon" href="/images/favicon.ico"/>
 </head>
 <body>
   <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      Equate
-    </a>
-
-                <ul class="nav-links">
-      <li><a href="/pages/product.html">Product</a></li>
-      <li><a href="/pages/how_it_works.html">How it works</a></li>
-      <li><a href="/pages/pricing.html">Pricing</a></li>
-      <li><a href="/pages/docs/index.html">Docs</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="icon-moon" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-      </button>
-      <a href="/pages/signin.html" class="btn btn-ghost">Sign in</a>
-      <a href="#" class="btn btn-primary" data-waitlist>Request access</a>
-    </div>
+    <a href="/index.html" class="nav-logo"><span class="logo-mark"><img src="/images/logo.svg" alt="Equate logo"/></span>Equate</a>
+    <ul class="nav-links"><li><a href="/pages/product.html">Product</a></li><li><a href="/pages/how_it_works.html">How it works</a></li><li><a href="/pages/pricing.html">Deployment planning</a></li><li><a href="/pages/docs/index.html">Docs</a></li></ul>
+    <div class="nav-actions"><a href="/pages/signin.html" class="btn btn-ghost">Dashboard access</a><a href="#" class="btn btn-primary" data-waitlist>Talk to Equate</a></div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        Out-of-Band Network Management
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Network telemetry, without inbound access</div>
+        <h1>See the network<br/>through the <em>outage.</em></h1>
+        <p class="hero-sub">Equate collects on-site SNMP telemetry, carries it securely to the cloud, and turns it into a clear view of every monitored site, device, interface, and dependency impact.</p>
+        <div class="hero-actions"><a href="#" class="btn btn-primary" data-waitlist>Plan a deployment</a><a href="/pages/how_it_works.html" class="btn btn-outline">Explore the architecture</a></div>
       </div>
-      <h1>Get in when<br/>everything else<br/><em>is broken.</em></h1>
-      <p class="hero-sub">
-        Equate gives IT teams a single, secure platform to access and manage distributed network infrastructure — even when the primary network is completely down.
-      </p>
-      <div class="hero-actions">
-        <a href="#" class="btn btn-primary" data-waitlist>Request early access</a>
-        <a href="/pages/how_it_works.html" class="btn btn-outline">See how it works</a>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div style="position: relative; padding: 20px 32px 48px;">
-        <div class="device-card">
-          <div class="device-card-header">
-            <div class="card-dots">
-              <div class="card-dot card-dot-r"></div>
-              <div class="card-dot card-dot-y"></div>
-              <div class="card-dot card-dot-g"></div>
-            </div>
-            <div class="card-title-bar">equate.io — Fleet Overview</div>
+      <div class="hero-visual">
+        <div class="product-preview" aria-label="Illustrative Equate monitoring dashboard">
+          <div class="preview-window">
+            <div class="preview-toolbar"><span class="preview-brand">// Equate</span><span class="preview-kicker">All sites · illustrative data</span></div>
+            <div class="preview-summary"><div class="preview-stat"><span class="preview-label">Sites</span><strong>4</strong></div><div class="preview-stat"><span class="preview-label">Devices</span><strong>36</strong></div><div class="preview-stat"><span class="preview-label">Critical</span><strong>1</strong></div><div class="preview-stat"><span class="preview-label">Unknown</span><strong>3</strong></div></div>
+            <div class="preview-table"><div class="preview-table-title">Current monitoring state</div><div class="preview-site-row"><div class="preview-site-copy"><strong>District Office</strong><span>12 devices · updated seconds ago</span></div><span class="status-chip is-healthy">Healthy</span></div><div class="preview-site-row"><div class="preview-site-copy"><strong>West Campus</strong><span>9 devices · temperature policy warning</span></div><span class="status-chip is-warning">Warning</span></div><div class="preview-device-row"><div class="preview-device-copy"><strong>core-01</strong><span>Direct reachability evidence</span></div><span class="status-chip is-critical">Critical</span></div><div class="preview-device-row"><div class="preview-device-copy"><strong>access-01</strong><span>Upstream core-01 unavailable</span></div><span class="status-chip is-unknown">Unknown</span></div></div>
           </div>
-          <div class="device-card-body">
-
-            <div class="site-row">
-              <div class="site-info">
-                <div class="site-icon" style="background:#f0f0f0; color:#333;">NY1</div>
-                <div>
-                  <div class="site-name">New York — DC East</div>
-                  <div class="site-meta">48 devices · 2m ago</div>
-                </div>
-              </div>
-              <div class="site-status">
-                <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
-                <button class="connect-btn">Connect</button>
-              </div>
-            </div>
-
-            <div class="site-row">
-              <div class="site-info">
-                <div class="site-icon" style="background:#fce8e3; color:#c75a42;">TX2</div>
-                <div>
-                  <div class="site-name">Austin — Branch Office</div>
-                  <div class="site-meta">12 devices · link down</div>
-                </div>
-              </div>
-              <div class="site-status">
-                <span class="status-badge status-oob"><span class="status-dot"></span>OOB Active</span>
-                <button class="connect-btn">Connect</button>
-              </div>
-            </div>
-
-            <div class="site-row">
-              <div class="site-info">
-                <div class="site-icon" style="background:#f0f0f0; color:#333;">LA3</div>
-                <div>
-                  <div class="site-name">Los Angeles — West Hub</div>
-                  <div class="site-meta">31 devices · 1m ago</div>
-                </div>
-              </div>
-              <div class="site-status">
-                <span class="status-badge status-online"><span class="status-dot"></span>Online</span>
-                <button class="connect-btn">Connect</button>
-              </div>
-            </div>
-
-            <div class="site-row">
-              <div class="site-info">
-                <div class="site-icon" style="background:#ebebeb; color:#7a7a7a;">CH4</div>
-                <div>
-                  <div class="site-name">Chicago — Midwest DC</div>
-                  <div class="site-meta">22 devices · 8m ago</div>
-                </div>
-              </div>
-              <div class="site-status">
-                <span class="status-badge status-warning"><span class="status-dot"></span>Degraded</span>
-                <button class="connect-btn">Connect</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="mini-card mini-card-uptime">
-          <div class="mini-label">OOB Uptime</div>
-          <div class="mini-value">99.97%</div>
-          <div class="mini-sub">↑ 0.02% this month</div>
-        </div>
-
-        <div class="mini-card mini-card-alert">
-          <div class="alert-row">
-            <div class="alert-icon">⚠️</div>
-            <div>
-              <div class="alert-title">Primary link down — Austin</div>
-              <div class="alert-desc">OOB via LTE · established 14s ago</div>
-            </div>
-          </div>
+          <p class="preview-note">Illustrative dashboard data — not a live system.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LOGOS -->
-  <div class="logos-section">
-    <div class="logos-inner">
-      <span class="logos-label">Powered by</span>
-      <div class="logos-list">
-        <span class="logo-item">Amazon Web Services</span>
-        <span class="logo-item">AWS IoT Core</span>
-        <span class="logo-item">CloudFront</span>
-        <span class="logo-item">Lambda@Edge</span>
-        <span class="logo-item">SOC 2 Ready</span>
+    <section class="features-section">
+      <div><div class="section-label">Monitoring platform</div><h2 class="section-heading">Evidence from the network<br/>to the dashboard.</h2><p class="section-sub">The platform keeps customer-network access local while giving operators durable, cloud-backed monitoring state.</p></div>
+      <div class="features-grid">
+        <article class="feature-tile"><div class="feature-title">Local SNMP collection</div><div class="feature-desc">A customer-side collector polls configured SNMPv2c devices independently, with core interface data and supported Cisco and Arista enrichment.</div></article>
+        <article class="feature-tile"><div class="feature-title">Durable outbound delivery</div><div class="feature-desc">Telemetry is written to a local SQLite outbox before MQTT/TLS delivery, so a transport outage does not stop polling.</div></article>
+        <article class="feature-tile"><div class="feature-title">Cloud-owned monitoring state</div><div class="feature-desc">Ingestion validates and deduplicates telemetry before PostgreSQL becomes the source of truth for dashboard and API views.</div></article>
+        <article class="feature-tile"><div class="feature-title">Dependency-aware health</div><div class="feature-desc">Separate direct Critical devices from Unknown devices affected by unavailable upstream paths—without treating impact as proof of an outage.</div></article>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- FEATURES -->
-  <section class="features-section">
-    <div class="fade-up">
-      <div class="section-label">Platform</div>
-      <h2 class="section-heading">Everything you need<br/>when things go wrong.</h2>
-      <p class="section-sub">Built for IT teams managing infrastructure across multiple sites — not just one data center.</p>
-    </div>
+    <section class="cta-section"><div class="cta-box"><div class="cta-content"><div class="cta-eyebrow">// deployment_planning</div><h2 class="cta-heading">Bring monitoring closer<br/>to the network.</h2><p class="cta-sub">Review collector placement, inventory, outbound connectivity, and cloud-plane requirements with the Equate team.</p></div><div class="cta-actions"><a href="/pages/contact.html" class="btn btn-ink">Talk to the team →</a></div></div></section>
+  </main>
 
-    <div class="features-grid fade-up">
+  <footer><div class="footer-inner"><a href="/index.html"><span class="footer-logo"><img src="/images/logo.svg" alt="Equate logo"/>Equate</span></a><ul class="footer-links"><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/security.html">Security</a></li><li><a href="/pages/contact.html">Contact</a></li></ul><span class="footer-copy">© 2026 Equate Technologies, Inc.</span></div></footer>
 
-      <div class="feature-tile">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="feature-title">Hardware-Agnostic</div>
-        <div class="feature-desc">Works with your existing console servers and cellular routers. No proprietary hardware required — bring your own device and install our agent.</div>
-      </div>
-
-      <div class="feature-tile">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <div class="feature-title">AWS-Native Infrastructure</div>
-        <div class="feature-desc">All traffic routes through AWS, inheriting enterprise-grade reliability, global regions, and security certifications your compliance team already trusts.</div>
-      </div>
-
-      <div class="feature-tile">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="feature-title">Role-Based Access</div>
-        <div class="feature-desc">Granular permissions per site and device. Only the right engineers access the right infrastructure. Full SSO support included.</div>
-      </div>
-
-      <div class="feature-tile">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <div class="feature-title">Immutable Audit Logs</div>
-        <div class="feature-desc">Every OOB session is logged, timestamped, and tamper-proof. Built for SOC 2, ISO 27001, and any compliance framework that demands accountability.</div>
-      </div>
-
-      <div class="feature-tile">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        </div>
-        <div class="feature-title">Instant Failover Alerts</div>
-        <div class="feature-desc">The moment a primary link drops, Equate detects it, establishes the OOB path, and notifies your team — before your monitoring tools even catch it.</div>
-      </div>
-
-      <div class="feature-tile">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="feature-title">Session Analytics</div>
-        <div class="feature-desc">Track OOB usage, failover frequency, and mean time to resolution across your entire fleet. Identify problem sites before they become incidents.</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-section">
-    <div class="how-inner">
-      <div class="fade-up">
-        <div class="section-label">How it works</div>
-        <h2 class="section-heading">Up and running in under an hour.</h2>
-        <p class="section-sub">No hardware to manufacture. No complex VPN configurations. Just a lightweight agent and a supported cellular device.</p>
-      </div>
-
-      <div class="steps-grid fade-up">
-        <div class="step step-active">
-          <div class="step-num">01</div>
-          <div class="step-title">Deploy the agent</div>
-          <div class="step-desc">Install our lightweight agent on a supported device at each site. Compatible with most off-the-shelf cellular routers.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-title">Register your sites</div>
-          <div class="step-desc">Each device checks in with Equate over AWS IoT Core. Sites appear in your dashboard within minutes.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-title">Set access policies</div>
-          <div class="step-desc">Define which engineers can access which sites. Configure alert thresholds and notification channels.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div class="step-title">Connect when it counts</div>
-          <div class="step-desc">When a primary link fails, log into Equate from anywhere and get a secure terminal session to your devices in seconds.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-box fade-up">
-      <div class="cta-content">
-        <div class="cta-eyebrow">// early_access</div>
-        <h2 class="cta-heading">Your network never<br/>sleeps. Neither do we.</h2>
-        <p class="cta-sub">Join IT teams already on the waitlist. Early access includes white-glove onboarding and locked-in pricing.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="#" class="btn btn-ink" data-waitlist>Request early access →</a>
-        <a href="pages/contact.html" class="btn btn-ghost-ink">Talk to the team</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <a href="/index.html">
-      <span class="footer-logo">
-        <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
-          <line x1="7"  y1="24" x2="17" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-          <line x1="13" y1="24" x2="23" y2="6"  stroke="#e8735a" stroke-width="3.5" stroke-linecap="round"/>
-        </svg>
-        Equate
-      </span>
-      </a>
-      <ul class="footer-links">
-        <li><a href="/pages/privacy.html">Privacy</a></li>
-        <li><a href="/pages/terms.html">Terms</a></li>
-        <li><a href="/pages/security.html">Security</a></li>
-        <li><a href="/pages/contact.html">Contact</a></li>
-      </ul>
-      <span class="footer-copy">© 2026 Equate Technologies, Inc.</span>
-    </div>
-  </footer>
-
-  <!-- WAITLIST MODAL -->
-  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div id="modal-overlay" class="modal-overlay"></div>
-    <div class="modal">
-      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
-
-      <!-- Default: form state -->
-      <div id="form-default">
-        <div class="modal-eyebrow">
-          <span class="eyebrow-dot"></span>
-          early_access
-        </div>
-        <h2 id="modal-title" class="modal-heading">Join the waitlist</h2>
-        <p class="modal-sub">Be first in line. Early access includes white-glove onboarding and locked-in pricing.</p>
-
-        <form id="waitlist-form" novalidate>
-          <div id="form-error" hidden>
-            <div class="form-error-msg">
-              ⚠ <span id="error-message">Something went wrong. Please try again.</span>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="waitlist-email">work_email</label>
-            <input
-              id="waitlist-email"
-              class="form-input"
-              type="email"
-              placeholder="you@company.com"
-              required
-              autocomplete="email"
-            />
-          </div>
-
-          <button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">
-            Join the waitlist
-          </button>
-        </form>
-
-        <hr class="form-divider"/>
-        <div class="modal-trust">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          no_spam · unsubscribe_anytime
-        </div>
-      </div>
-
-      <!-- Success state -->
-      <div id="form-success" hidden class="form-success">
-        <div class="success-icon">✓</div>
-        <h3 class="success-heading">You're on the list.</h3>
-        <p class="success-sub">We'll be in touch when early access opens. Keep an eye on your inbox.</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/nav.js"></script>
-  <script src="js/main.js"></script>
-
+  <div id="waitlist-modal" class="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div id="modal-overlay" class="modal-overlay"></div><div class="modal"><button id="modal-close" class="modal-close" type="button" aria-label="Close">✕</button><div id="form-default"><div class="modal-eyebrow"><span class="eyebrow-dot"></span>deployment_planning</div><h2 id="modal-title" class="modal-heading">Talk to the Equate team</h2><p class="modal-sub">Tell us where you need visibility. We’ll help you evaluate a monitoring deployment.</p><form id="waitlist-form" novalidate><div id="form-error" hidden><div class="form-error-msg">⚠ <span id="error-message">Something went wrong. Please try again.</span></div></div><div class="form-field"><label class="form-label" for="waitlist-email">work_email</label><input id="waitlist-email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email"/></div><button id="waitlist-submit" class="btn btn-primary form-submit" type="submit">Request a conversation</button></form></div><div id="form-success" hidden class="form-success"><div class="success-icon">✓</div><h3 class="success-heading">Thanks for reaching out.</h3><p class="success-sub">We’ll be in touch to discuss your monitoring environment.</p></div></div></div>
+  <script src="js/nav.js"></script><script src="js/main.js"></script>
 </body>
 </html>

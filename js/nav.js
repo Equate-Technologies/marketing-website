@@ -6,13 +6,109 @@
 (function () {
   'use strict';
 
+  /* ── Site base (GitHub Pages project sites live under /repo-name) ── */
+  const SITE_ROOTS = { css: 1, js: 1, pages: 1, images: 1, index: 1 };
+
+  function detectSiteBase() {
+    const scripts = document.getElementsByTagName('script');
+    for (let i = 0; i < scripts.length; i++) {
+      const src = scripts[i].src || '';
+      const idx = src.indexOf('/js/nav.js');
+      if (idx === -1) continue;
+      try {
+        const pathOnly = new URL(src).pathname;
+        const basePath = pathOnly.slice(0, pathOnly.indexOf('/js/nav.js'));
+        return basePath || '';
+      } catch (e) { /* ignore */ }
+    }
+    const segs = window.location.pathname.split('/').filter(Boolean);
+    if (segs.length && !SITE_ROOTS[segs[0].replace(/\.html$/, '')] && !segs[0].endsWith('.html')) {
+      return '/' + segs[0];
+    }
+    return '';
+  }
+
+  function withBase(url, base) {
+    if (!base || !url || url.charAt(0) !== '/' || url.charAt(1) === '/') return url;
+    if (url === base || url.indexOf(base + '/') === 0) return url;
+    return base + url;
+  }
+
+  const siteBase = detectSiteBase();
+  if (siteBase) {
+    document.querySelectorAll('[href^="/"], [src^="/"]').forEach(function (el) {
+      const attr = el.hasAttribute('href') ? 'href' : 'src';
+      const raw = el.getAttribute(attr);
+      const next = withBase(raw, siteBase);
+      if (next !== raw) el.setAttribute(attr, next);
+    });
+  }
+
   /* ── Active nav link ── */
   const path = window.location.pathname;
+
+  // #region agent log
+  (function debugNavPaths() {
+    const links = Array.from(document.querySelectorAll('a[href*="how_it_works"], .nav-links a, .nav-actions a[href], .nav-logo'));
+    const linkData = links.map((a) => {
+      const raw = a.getAttribute('href') || '';
+      return {
+        raw: raw,
+        resolved: a.href,
+        isRootAbsolute: raw.charAt(0) === '/',
+        includesBase: !siteBase || raw.indexOf(siteBase) === 0
+      };
+    });
+    fetch('http://127.0.0.1:7357/ingest/7a5ab7ee-cf72-4adf-bb90-b7154a264734', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'e0168e' },
+      body: JSON.stringify({
+        sessionId: 'e0168e',
+        runId: 'post-fix',
+        hypothesisId: 'A',
+        location: 'nav.js:path-probe',
+        message: 'GH Pages path/base probe after rewrite',
+        data: {
+          href: window.location.href,
+          pathname: path,
+          siteBase: siteBase,
+          linkData: linkData
+        },
+        timestamp: Date.now()
+      })
+    }).catch(function () {});
+
+    document.querySelectorAll('a[href*="how_it_works"], .nav-links a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        fetch('http://127.0.0.1:7357/ingest/7a5ab7ee-cf72-4adf-bb90-b7154a264734', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'e0168e' },
+          body: JSON.stringify({
+            sessionId: 'e0168e',
+            runId: 'post-fix',
+            hypothesisId: 'A',
+            location: 'nav.js:nav-click',
+            message: 'Nav/CTA click after rewrite',
+            data: {
+              raw: a.getAttribute('href') || '',
+              resolved: a.href,
+              siteBase: siteBase,
+              includesBase: !siteBase || (a.getAttribute('href') || '').indexOf(siteBase) === 0
+            },
+            timestamp: Date.now()
+          })
+        }).catch(function () {});
+      });
+    });
+  })();
+  // #endregion
+
   document.querySelectorAll('.nav-links a').forEach((a) => {
     const href = a.getAttribute('href') || '';
+    const hrefPath = href.replace(siteBase, '');
     // Match by filename or section
-    const isHome    = (path === '/' || path.endsWith('index.html')) && (href === '#' || href === '/' || href === 'index.html');
-    const isActive  = !isHome && href !== '#' && path.includes(href.replace('../', '').replace('.html', ''));
+    const isHome    = (path === '/' || path === siteBase + '/' || path.endsWith('index.html')) && (hrefPath === '#' || hrefPath === '/' || hrefPath === 'index.html' || hrefPath === '/index.html');
+    const isActive  = !isHome && hrefPath !== '#' && path.includes(hrefPath.replace('../', '').replace('.html', ''));
     if (isHome || isActive) a.classList.add('active');
   });
 
@@ -29,21 +125,6 @@
     }
     lastScrollY = current;
   }, { passive: true });
-
-  /* ── Dark mode toggle ── */
-  const themeToggle = document.getElementById('theme-toggle');
-  const root        = document.documentElement;
-
-  const saved = localStorage.getItem('equate-theme') || 'light';
-  root.setAttribute('data-theme', saved);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('equate-theme', next);
-    });
-  }
 
   /* ── Waitlist modal (shared) ── */
   const modal        = document.getElementById('waitlist-modal');

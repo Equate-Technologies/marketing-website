@@ -234,6 +234,22 @@ function testHtmlFile(filePath) {
       });
     }
   }
+
+  // Test 9: Theme selection belongs to the browser, not page markup or storage.
+  const legacyThemeTokens = ['data-theme', 'equate-theme', 'theme-toggle'];
+  legacyThemeTokens.forEach(token => {
+    if (content.includes(token)) {
+      error(`Legacy theme control found: ${token}`);
+    }
+  });
+
+  // Test 10: Shared navigation and footer use the sized logo asset.
+  if (content.includes('class="logo-mark"') && !/class="logo-mark"[^>]*>\s*<img[^>]+src="[^"]*images\/logo\.svg"/.test(content)) {
+    error('Navigation logo does not use images/logo.svg');
+  }
+  if (content.includes('class="footer-logo"') && !/class="footer-logo"[^>]*>\s*<img[^>]+src="[^"]*images\/logo\.svg"/.test(content)) {
+    error('Footer logo does not use images/logo.svg');
+  }
   
   // Test 8: Check navigation consistency in /pages/ directory
   if (fileName.includes('pages\\') || fileName.includes('pages/')) {
@@ -260,6 +276,15 @@ function runTests() {
   log(`${colors.bright}${colors.cyan}║     Equate Site - HTML Validation & Link Checker      ║${colors.reset}`);
   log(`${colors.bright}${colors.cyan}╚════════════════════════════════════════════════════════╝${colors.reset}\n`);
   
+  const stylesPath = path.join(process.cwd(), 'css', 'styles.css');
+  const styles = fs.readFileSync(stylesPath, 'utf-8');
+  if (!styles.includes('@media (prefers-color-scheme: dark)')) {
+    error('Missing browser-driven dark theme media query');
+  }
+  if (styles.includes('[data-theme')) {
+    error('Legacy data-theme selector found in shared styles');
+  }
+
   const htmlFiles = getAllHtmlFiles(process.cwd());
   
   info(`Found ${htmlFiles.length} HTML files to test\n`);
